@@ -1,0 +1,7 @@
+*.asdf
+*.idea*
+*.pyc
+*__pycache__*
+*.egg-info
+*version.py*
+build/*
