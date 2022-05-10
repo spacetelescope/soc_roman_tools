@@ -19,9 +19,9 @@ pip install git+https://github.com/spacetelescope/soc_roman_tools
 ## Example Jupyter Notebooks
 
 To use the Jupyter notebooks currently provided in this repository, please use the installation instructions above.
-After installation, either clone the repository or download the individual notebook you are interested in, change to 
-the same directory as the notebook(s) on your system, and start a Jupyter notebook session in the same environment in 
-which you installed `soc_roman_tools`.
+After installation, either clone the repository or download the individual notebook(s) that you are interested in, 
+change directories to the same location as the notebook(s) on your system, and start a Jupyter notebook session in 
+the environment in which you installed `soc_roman_tools`.
 
 ## Help
 
