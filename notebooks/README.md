@@ -1,7 +1,8 @@
 # Tutorial Jupyter Notebooks
 
 To use the Jupyter notebooks provided in this repository, please begin with the installation instructions
-for `soc_roman_tools` located [here](https://github.com/spacetelescope/soc_roman_tools). 
+for `soc_roman_tools` located [here](https://github.com/spacetelescope/soc_roman_tools). Currently, the notebooks can 
+only be run in environments using either Python 3.8 or 3.9.
 
 ***You will need to install additional software in the same environment to run the notebooks.***
 
