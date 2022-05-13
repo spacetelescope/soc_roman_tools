@@ -19,13 +19,17 @@ from pysiaf.siaf import ApertureCollection
 
 
 class RomanSiaf(ApertureCollection):
+    """
+    Class for reading and handling Roman SIAF information. This is based on
+    pysiaf base classes, so all of the pysiaf functionality for, e.g., JWST
+    SIAF objects is included here as well.
+    """
 
     def __init__(self, siaf_file=None):
 
         if not siaf_file:
             with importlib_resources.path('soc_roman_tools.resources.data',
                                           'roman_siaf.xml') as siaf_file:
-                print(siaf_file)
                 self.siaf_file = siaf_file
         else:
             self.siaf_file = siaf_file
@@ -34,6 +38,21 @@ class RomanSiaf(ApertureCollection):
         self.observatory = 'Roman'
 
     def read_roman_siaf(self):
+        """
+        Purpose
+        -------
+        Read the SIAF file.
+
+        Inputs
+        ------
+        None
+
+        Returns
+        -------
+        apertures (collections.OrderedDict)
+            An ordered dictionary of pysiaf.aperture objects containing each
+            aperture from the Roman SIAF file that was read.
+        """
 
         apertures = OrderedDict()
         tree = ET.parse(self.siaf_file)
@@ -83,6 +102,11 @@ class RomanSiaf(ApertureCollection):
 
 
 class RomanAperture(aperture.Aperture):
+    """
+    A class that defines the accepted aperture types for
+    the Roman SIAF. This is built upon the pysiaf.aperture.Aperture
+    base class.
+    """
 
     _accepted_aperture_types = ['FULLSCA', 'COMPOUND']
 
@@ -101,6 +125,16 @@ class SpecPars:
     """
 
     def __init__(self, spec_node):
+        """
+        Inputs
+        ------
+        spec_node (`xml.etree`):
+            XML object containing the spectroscopic mode SIAF parameters.
+
+        Returns
+        -------
+        None
+        """
 
         # General info
         self.position = list()
