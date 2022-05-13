@@ -62,7 +62,8 @@ class RomanSiaf(ApertureCollection):
             for node in entry:
                 if node.tag == 'AperType':
                     apertype = node.text
-                if (node.tag in aperture.ATTRIBUTES_THAT_CAN_BE_NONE) and (node.text is None):
+                if (node.tag in aperture.ATTRIBUTES_THAT_CAN_BE_NONE) and \
+                        (node.text is None):
                     value = node.text
                 elif node.tag in aperture.INTEGER_ATTRIBUTES:
                     try:
