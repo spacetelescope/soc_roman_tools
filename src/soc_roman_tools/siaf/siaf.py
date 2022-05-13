@@ -2,7 +2,7 @@
 Dedicated code for reading the SIAF. Adding it here in case
 pysiaf does not officially support Roman.
 """
-
+import pdb
 from collections import OrderedDict
 import sys
 
@@ -186,7 +186,7 @@ class SpecPars:
                     pass
 
 
-def get_distortion_coeffs(siaf_file, aperture_name):
+def get_distortion_coeffs(aperture_name, siaf_file=None, inverse=False):
     """
     Purpose
     -------
@@ -195,12 +195,16 @@ def get_distortion_coeffs(siaf_file, aperture_name):
 
     Inputs
     ------
-    siaf_file (string):
-        Path to the SIAF file to be read.
-
     aperture_name (string):
         Name of the aperture in the SIAF XML tree from which to pull the
         distortion coefficients.
+
+    siaf_file (string; optional; default=None:
+        Path to the SIAF file to be read. If None, read the default SIAF that
+        comes with soc_roman_tools.
+
+    inverse (boolean; optional; default=False):
+        If True, return the inverse distortion coefficients.
 
     Returns
     -------
@@ -213,14 +217,41 @@ def get_distortion_coeffs(siaf_file, aperture_name):
         in the Y direction.
     """
 
+    if not siaf_file:
+        with importlib_resources.path('soc_roman_tools.resources.data',
+                                      'roman_siaf.xml') as sf:
+            siaf_file = sf
+
     siaf_xml = ET.parse(siaf_file)
     siaf_root = siaf_xml.getroot()
 
+    x_coeffs = {}
+    y_coeffs = {}
+
     for child in siaf_root:
-        if child[1].text == aperture_name:
-            # X = indices 33 to 53
-            # Y = indices 54 to 74
-            x_coeffs = np.array([float(child[i].text) for i in np.arange(33, 54, 1)])
-            y_coeffs = np.array([float(child[i].text) for i in np.arange(54, 75, 1)])
+        if not inverse:
+            if child[1].text == aperture_name:
+                # X = indices 33 to 53
+                # Y = indices 54 to 74
+                for i in np.arange(33, 54, 1):
+                    name = child[i].tag
+                    value = float(child[i].text)
+                    x_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                for i in np.arange(54, 75, 1):
+                    name = child[i].tag
+                    value = float(child[i].text)
+                    y_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+        else:
+            if child[1].text == aperture_name:
+                # X = indices 75 to 95
+                # Y = indices 96 to 116
+                for i in np.arange(75, 95, 1):
+                    name = child[i].tag
+                    value = float(child[i].text)
+                    x_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                for i in np.arange(96, 116, 1):
+                    name = child[i].tag
+                    value = float(child[i].text)
+                    y_coeffs[f'c{name[-2]}_{name[-1]}'] = value
 
     return x_coeffs, y_coeffs
