@@ -235,23 +235,31 @@ def get_distortion_coeffs(aperture_name, siaf_file=None, inverse=False):
                 # Y = indices 54 to 74
                 for i in np.arange(33, 54, 1):
                     name = child[i].tag
+                    j = eval(name[-2])
+                    k = eval(name[-1])
                     value = float(child[i].text)
-                    x_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                    x_coeffs[f'c{j - k}_{k}'] = value
                 for i in np.arange(54, 75, 1):
                     name = child[i].tag
+                    j = eval(name[-2])
+                    k = eval(name[-1])
                     value = float(child[i].text)
-                    y_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                    y_coeffs[f'c{j - k}_{k}'] = value
         else:
             if child[1].text == aperture_name:
                 # X = indices 75 to 95
                 # Y = indices 96 to 116
                 for i in np.arange(75, 95, 1):
                     name = child[i].tag
+                    j = eval(name[-2])
+                    k = eval(name[-1])
                     value = float(child[i].text)
-                    x_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                    x_coeffs[f'c{j - k}_{k}'] = value
                 for i in np.arange(96, 116, 1):
                     name = child[i].tag
+                    j = eval(name[-2])
+                    k = eval(name[-1])
                     value = float(child[i].text)
-                    y_coeffs[f'c{name[-2]}_{name[-1]}'] = value
+                    y_coeffs[f'c{j - k}_{k}'] = value
 
     return x_coeffs, y_coeffs
