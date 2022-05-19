@@ -2,7 +2,7 @@
 Dedicated code for reading the SIAF. Adding it here in case
 pysiaf does not officially support Roman.
 """
-import pdb
+
 from collections import OrderedDict
 import sys
 
