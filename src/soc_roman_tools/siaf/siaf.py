@@ -11,6 +11,7 @@ if sys.version_info < (3, 9):
 else:
     import importlib.resources as importlib_resources
 
+import ast
 import numpy as np
 from xml.etree import ElementTree as ET
 
@@ -235,14 +236,14 @@ def get_distortion_coeffs(aperture_name, siaf_file=None, inverse=False):
                 # Y = indices 54 to 74
                 for i in np.arange(33, 54, 1):
                     name = child[i].tag
-                    j = eval(name[-2])
-                    k = eval(name[-1])
+                    j = ast.literal_eval(name[-2])
+                    k = ast.literal_eval(name[-1])
                     value = float(child[i].text)
                     x_coeffs[f'c{j - k}_{k}'] = value
                 for i in np.arange(54, 75, 1):
                     name = child[i].tag
-                    j = eval(name[-2])
-                    k = eval(name[-1])
+                    j = ast.literal_eval(name[-2])
+                    k = ast.literal_eval(name[-1])
                     value = float(child[i].text)
                     y_coeffs[f'c{j - k}_{k}'] = value
         else:
@@ -251,14 +252,14 @@ def get_distortion_coeffs(aperture_name, siaf_file=None, inverse=False):
                 # Y = indices 96 to 116
                 for i in np.arange(75, 95, 1):
                     name = child[i].tag
-                    j = eval(name[-2])
-                    k = eval(name[-1])
+                    j = ast.literal_eval(name[-2])
+                    k = ast.literal_eval(name[-1])
                     value = float(child[i].text)
                     x_coeffs[f'c{j - k}_{k}'] = value
                 for i in np.arange(96, 116, 1):
                     name = child[i].tag
-                    j = eval(name[-2])
-                    k = eval(name[-1])
+                    j = ast.literal_eval(name[-2])
+                    k = ast.literal_eval(name[-1])
                     value = float(child[i].text)
                     y_coeffs[f'c{j - k}_{k}'] = value
 
