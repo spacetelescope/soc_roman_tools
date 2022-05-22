@@ -1,0 +1,5 @@
+webbpsf
+stsynphot
+pandeia.engine == 1.7
+jupyter
+pandas
