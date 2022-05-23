@@ -8,3 +8,4 @@ build/
 .eggs/
 .pytest_cache/
 .tox/
+*.ipynb_checkpoints*
