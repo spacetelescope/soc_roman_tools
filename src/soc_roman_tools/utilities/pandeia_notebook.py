@@ -159,12 +159,12 @@ def _metric_(sntarg, snmeas):
     Purpose
     -------
     Helper function. This is to hone in on a "target" S/N.
-    
+
     Inputs
     ------
     sntarg (float):
         Target signal-to-noise.
-    
+
     snmeas (float):
         Measured signal-to-noise.
 
@@ -251,22 +251,22 @@ def compute_mag(filt, sn, nexp, bracket=(18, 30), xtol=1e-4, **kwargs):
     Purpose
     -------
     Compute the magnitude from the signal-to-noise ratio and number of exposures.
-    
+
     Inputs
     ------
     filt (string):
         Roman optical element name.
-        
+
     sn (float):
         Signal-to-noise ratio.
-        
+
     nexp (integer):
         Number of exposures.
-        
+
     bracket (tuple of floats; optional; default=(18, 30)):
         A tuple containing the lower and upper bounds for the magnitude calculation
         result.
-        
+
     xtol (float; optional; default=1e-4):
         Tolerance for the magnitude calculation result.
 
