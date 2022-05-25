@@ -145,7 +145,8 @@ class PixelArea:
         x = pixels[1, :, :]
 
         self.pixel_area_map = matrix.jacob(self.x_coeffs,
-                                           self.y_coeffs, x, y, order=5).astype(np.float32)
+                                           self.y_coeffs, x, y,
+                                           order=5).astype(np.float32)
 
         # Sanity check.
         ratio = self.pixel_area_map[det_size, det_size] / pixel_area_a2.value
@@ -213,7 +214,8 @@ class PixelArea:
         >>> pam16 = pixel_area_map.PixelArea(16)
         >>> pam16.compute()
         >>> useafter = Time(datetime(2022, 1, 1, 0, 0, 0))
-        >>> pam16.save_asdf(meta_data_override={'origin': 'STScI', 'useafter': useafter})
+        >>> pam16.save_asdf(meta_data_override={'origin': 'STScI',
+        >>>                                     'useafter': useafter})
         """
 
         if not filename:
@@ -230,7 +232,8 @@ class PixelArea:
                 'author': f'wfitools version {__version__}',
                 'useafter': Time(datetime.datetime(2020, 1, 1, 0, 0, 0)),
                 'photometry':
-                    {'pixelarea_arcsecsq': self.nominal_pixel_area.to(u.arcsec * u.arcsec),
+                    {'pixelarea_arcsecsq':
+                         self.nominal_pixel_area.to(u.arcsec * u.arcsec),
                      'pixelarea_steradians': self.nominal_pixel_area},
                 'instrument':
                     {'optical_element': 'F158',
