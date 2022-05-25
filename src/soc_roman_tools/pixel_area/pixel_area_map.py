@@ -29,7 +29,7 @@ from ..utilities import matrix
 from soc_roman_tools.siaf import siaf
 
 # Automatic versioning
-from soc_roman_tools._version import version as __version__
+from soc_roman_tools.version import version as __version__
 
 
 class PixelArea:
