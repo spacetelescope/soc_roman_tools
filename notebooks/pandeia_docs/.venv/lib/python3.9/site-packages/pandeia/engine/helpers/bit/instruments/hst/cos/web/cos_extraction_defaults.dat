@@ -1,0 +1,33 @@
+# Dictionary containing the photometric extraction values for 
+# "shape" and "size" when users choose the "default" or "recommended"
+# values for COS modes.
+#
+# key: (target_type, science_mode)
+# value: either (shape, size) or a dictionary indexed by detector yielding (shape, size)
+#   shape = 'circle'|'percent'|'rectangle'|'square'
+#    size = value in arcsec for circles,
+#                    pixels for squares and rectangles,
+#                    unitless for percent
+#
+{ ('point', 'imaging')    : ('percent', 80.0),
+  ('point', 'targetacquisition') : { 'fuv' : ('square', 47),
+                                     'nuv' : ('square',  9), 
+                                   },
+  ('point', 'spectroscopic') : { 'fuv' : ('rectangle', (47,6) ),
+                                 'nuv' : ('rectangle', (8,3) )
+                               },
+  ('point', 'spectroscopicacq') : { 'fuv' : ('rectangle', (47,6) ),
+                                    'nuv' : ('rectangle', (8,3) )
+                                  },
+
+  ('extended', 'imaging') : None,
+  ('extended', 'targetacquisition') : { 'fuv' : ('square', 47),
+                                        'nuv' : ('square',  9)
+                                      },
+  ('extended', 'spectroscopic') : { 'fuv' : ('rectangle', (47,6) ),
+                                    'nuv' : ('rectangle', (8,3) )
+                                  },
+  ('extended', 'spectroscopicacq') : { 'fuv' : ('rectangle', (47,6) ),
+                                       'nuv' : ('rectangle', (8,3) )
+                                     },
+}

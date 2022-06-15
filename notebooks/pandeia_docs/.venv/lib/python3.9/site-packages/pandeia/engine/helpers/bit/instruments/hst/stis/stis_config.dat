@@ -1,0 +1,377 @@
+# This file contains info relating to STIS instrument performance.
+#
+# Original data taken from the JETC tables at
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/ETC/datafiles/init/PROPERTYSETS.TXT
+# and
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/ETC/datafiles/init/STIS.TXT
+# Some values were later updated, based on actual test results. Updates are
+# necessary since the tables above are updated by the obscure JETC database update
+# mechanism, and we just can'te find that information on the JETC update files (IB, Mar 2010).
+#
+# On April 8, 2010, the CCD critical wavelength was taken from
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/JUNIT/testFiles/updates/dUpdate000034.xml
+#
+# April 15, 2013 updated STIS CCD Dark rate from PR 72860
+# https://www.ess.stsci.edu/prsystem/servlet/prbrowse/pr.72860
+#
+{
+'name': 'stis',
+'ccd': {
+    # Spectral resolution taken from the latest entries in the Java ETC data base.
+    'spectral_resolution': 2,
+    'crsplit': {'spectroscopic':2,
+                'imaging':2,
+                'targetacquisition':1},
+    }, # end ccd
+
+'fuvmama': {
+    'echelle_scatter': {
+        'e140h': {1150: 0.479,
+                  1210: 0.793,
+                  1450: 0.911,
+                  1650: 0.939,
+                  1690: 0.908,
+                  1720: 0.885},
+        'e140m': {1130: 0.4381159,
+                  1152: 0.501,
+                  1236: 0.758,
+                  1376: 0.844,
+                  1540: 0.902,
+                  1700: 0.912,
+                  1730: 0.914}
+     },
+    'echelle_global': {
+        'e140h': {1234: 1.82,
+                  1271: 1.77,
+                  1307: 1.76,
+                  1343: 1.71,
+                  1380: 1.66,
+                  1416: 1.59,
+                  1453: 1.55,
+                  1489: 1.50,
+                  1526: 1.44,
+                  1562: 1.43,
+                  1598: 1.89},
+        'e140m': {1425: 1.66},
+    },
+    # Spectral resolution taken from the latest entries in the Java ETC data base.
+    'spectral_resolution': 2,
+    }, # end fuvmama
+
+'nuvmama': {
+    'echelle_scatter': {
+        'e230h': {1620: 0.729,
+                  1632: 0.744,
+                  1734: 0.870,
+                  1882: 0.912,
+                  2890: 0.980,
+                  3140: 0.952,
+                  3200: 0.945},
+        'e230m': {1570: 0.376,
+                  1621: 0.655,
+                  1657: 0.852,
+                  2314: 0.967,
+                  2998: 0.985,
+                  3092: 0.975,
+                  3200: 0.964},
+    },
+    'echelle_global': {
+        'e230h': {1763: 1.568,
+                  1813: 1.547,
+                  1863: 1.526,
+                  1913: 1.505,
+                  1963: 1.484,
+                  2013: 1.463,
+                  2063: 1.442,
+                  2113: 1.421,
+                  2163: 1.400,
+                  2213: 1.379,
+                  2263: 1.358,
+                  2313: 1.337,
+                  2363: 1.316,
+                  2413: 1.295,
+                  2463: 1.274,
+                  2513: 1.253,
+                  2563: 1.232,
+                  2613: 1.211,
+                  2663: 1.190,
+                  2713: 1.169,
+                  2762: 1.148,
+                  2812: 1.127,
+                  2862: 1.106,
+                  2912: 1.085,
+                  2962: 1.064,
+                  3012: 1.043},
+        'e230m': {1978: 1.27,
+                  2124: 1.34,
+                  2269: 1.32,
+                  2415: 1.30,
+                  2561: 1.26,
+                  2707: 1.23},
+    },
+    # Spectral resolution taken from the latest entries in the Java ETC data base.
+    'spectral_resolution': 2,
+    }, # end nuvmama
+
+'gratings': {
+    'g140l': {'resolution':1000},
+    'g140m': {'resolution':10000},
+    'g230l': {'resolution':500},
+    'g230m': {'resolution':10000},
+    'g230lb': {'resolution':700},
+    'g230mb': {'resolution':6000},
+    'g430l': {'resolution':500},
+    'g430m': {'resolution':6000},
+    'g750l': {'resolution':500},
+    'g750m': {'resolution':5000},
+    'e140m': {'resolution':45800},
+    'e140h': {'resolution':114000},
+    'e230m': {'resolution':30000},
+    'e230h': {'resolution':114000},
+    'prism': {'resolution':0},
+  },
+
+  # Define by grating,central_wavelength whether to specify "c" or "i" to pysynphot for central wavelength term
+  # for spec mode.
+
+  'ci_table' : {
+    'g750m' : {
+        5734:'c', 6094:'i', 6252:'c', 6581:'i', 6768:'c', 7283:'c', 7795:'c', 8311:'c', 8561:'i', 8825:'c', 9286:'i', 9336:'c', 9806:'i', 9851:'c', },
+    'g430m' : {
+        3165:'c', 3305:'i', 3423:'c', 3680:'c', 3843:'i', 3936:'c', 4194:'c', 4451:'c', 4706:'c', 4781:'i', 4961:'c', 5093:'i', 5216:'c', 5471:'c', },
+    'g230mb' : {
+        1713:'c', 1854:'c', 1995:'c', 2135:'c', 2276:'c', 2416:'c', 2557:'c', 2697:'c', 2794:'i', 2836:'c', 2976:'c', 3115:'c', },
+    'g140m' : {
+        1173:'c', 1218:'i', 1222:'c', 1272:'c', 1321:'c', 1371:'c', 1387:'i', 1400:'i', 1420:'c', 1470:'c', 1518:'c', 1540:'i', 1550:'i', 1567:'c', 1616:'c', 1640:'i', 1665:'c', 1714:'c', },
+    'g230m' : {
+        1687:'c', 1769:'c', 1851:'c', 1884:'i', 1933:'c', 2014:'c', 2095:'c', 2176:'c', 2257:'c', 2338:'c', 2419:'c', 2499:'c', 2579:'c', 2600:'i', 2659:'c', 2739:'c', 2800:'i', 2818:'c', 2828:'i', 2898:'c', 2977:'c', 3055:'c', },
+    'e230m' : {
+        1978:'c', 2124:'i', 2269:'i', 2415:'i', 2561:'i', 2707:'c', },
+    'e230h' : {
+        1763:'c', 1813:'i', 1863:'i', 1913:'i', 1963:'i', 2013:'c', 2063:'i', 2113:'i', 2163:'i', 2213:'i', 2263:'c', 2313:'i', 2363:'i', 2413:'i', 2463:'i', 2513:'c', 2563:'i', 2613:'i', 2663:'i', 2713:'i', 2762:'c', 2812:'i', 2862:'i', 2912:'i', 2962:'i', 3012:'c', },
+    'e140h' : {
+        1271:'i', 1234:'c', 1307:'i', 1343:'i', 1380:'i', 1416:'c', 1453:'i', 1489:'i', 1526:'i', 1562:'i', 1598:'c', },
+
+  #central wavelengths for default options taken from http://www.stsci.edu/ftp/documents/p2pi/HTML/ch10_stis.html#1786238
+  # These entries specify default central wavelengths to be used for gratings that don't allow
+  # the user to choose.
+    'e140m': {
+        1425: 'c'},
+    'g750l': {
+        7751: 'c'},
+
+  # These don't allow the user to choose either, but the obsmode/graphtable does not support the specification
+  # of a central wavelength.
+#    'g230lb' : {
+#        2375:'c' },
+#    'g230l': {
+#        2376: 'c'},
+#    'g430l': {
+#        4300: 'c'},
+
+   },
+
+# 'bandpass_limits' specifies the bandpass limits provided by the instrument teams
+# for each filter. Flux outside of these ranges is considered and reported to
+# be a filter leak.  The numbers are provided in PR74482/74483 and in
+# reference to ticket #983.
+'bandpass_limits': {
+    '50ccd': (500.0, 30000.0),
+    '25mama': (500.0, 30000.0),
+    'f25lya': (1150.0, 1510.0),
+    'f25ndq1': (1160.22, 12000.0),
+    'f25ndq2': (1160.22, 12000.0),
+    'f25ndq3': (1160.06, 12000.0),
+    'f25ndq4': (1160.22, 12000.0),
+    'f25nd3':  (1142.0, 12000.0),
+    'f25nd5':  (1142.0, 12000.0),
+    'f28x50lp': (5319.88, 12000.0),
+    'f28x50oii': (3680.0, 3800.0),
+    'f28x50oiii': (4998.0, 5015.0),
+    'f25cn270': (2555.0, 2884.0),
+    'f25ciii': (1681.0, 2316.0),
+    'f25cn182': (1199.0, 3589.0),
+    'f25qtz': (1453.0, 10998.0),
+    'f25srf2': (1272.78, 10999.1),
+    'f25mgii': (2745.46, 2863.24),
+},
+
+#
+# For the 3 dicts below (filtered_slits, lossy_slits, geometric_slits), see:
+#
+# http://www.stsci.edu/ftp/documents/p2pi/HTML/ch10_stis_apertures.html
+#   HST Phase II Proposal Instructions for Cycle 12 (RPS2),
+#   Version 12.1.0 (RPS2), 4/1/03, Table 10.4
+#   'aper. name' : (ysize, xsize) in arcsec (or L,W)
+#
+# and
+#
+# http://www.stsci.edu/hst/stis/design/apertures/documents/handbooks/currentIHB/appndx_spectcap3.html
+#   STIS Instrument Handbook 9.0, January 2010, Space Telescope Imaging
+#   Spectrograph Instrument Handbook for Cycle 18, Appendix A2
+#   'slit string' : (ysize, xsize) = (cross-dispersion, dispersion) in arcsec
+#   = length in spatial direction, width in dispersion direction in arcsec
+#
+# and
+#
+# Ticket #649 and its associated Basecamp thread.
+#
+
+
+# filtered_slits: are always applied to obsmode
+'filtered_slits' : {
+        # The next 7 are small filtered slits the throughput of which includes
+        # both diffraction losses and filter transmission. They will have an
+        # incorrect behavior with extended targets (throughput slightly
+        # underestimated).  Typical usage is for point sources.
+        '0.05X31NDA'  : (0.05,31.0),
+        '0.05X31NDB'  : (0.05,31.0),
+        '0.2X0.05ND'  : (0.2,0.05),
+        '0.3X0.05ND'  : (0.3,0.05),
+        '31X0.05NDA'  : (31.0,0.05),
+        '31X0.05NDB'  : (31.0,0.05),
+        '31X0.05NDC'  : (31.0,0.05),
+         # 'F*': large filtered aper.s intended primarily for imaging
+        'F28X50LP'    : (28.0,52.0),
+        'F28X50OIII'  : (28.0,52.0),
+        'F28X50OII'   : (28.0,52.0),
+        'F25QTZ'      : (25.0,25.0),
+        'F25SRF2'     : (25.0,25.0),
+        'F25MGII'     : (25.0,25.0),
+        'F25CN270'    : (25.0,25.0),
+        'F25CIII'     : (25.0,25.0),
+        'F25CN182'    : (25.0,25.0),
+        'F25LYA'      : (25.0,25.0),
+        'F25NDQ1'     : (13.4,9.7),
+        'F25NDQ2'     : (13.8,15.1),
+        'F25NDQ3'     : (11.4,15.3),
+        'F25NDQ4'     : (11.8,9.5),
+        'F25ND3'      : (25.0,25.0),
+        'F25ND5'      : (25.0,25.0),
+    },
+
+# lossy_slits: are applied to obsmode for point targets only
+# (the following are all clear)
+'lossy_slits' : {
+        '0.05X29'     : (0.05,29.0),
+        '0.09X29'     : (0.09,29.0),
+        '0.1X0.03'    : (0.1,0.025),
+        '0.1X0.06'    : (0.1,0.06),
+        '0.1X0.09'    : (0.1,0.09),
+        '0.1X0.2'     : (0.1,0.2),
+        '0.2X0.06'    : (0.2,0.06),
+        '0.2X0.06FPA' : (0.2,0.06),
+        '0.2X0.06FPB' : (0.2,0.06),
+        '0.2X0.06FPC' : (0.2,0.06),
+        '0.2X0.06FPD' : (0.2,0.06),
+        '0.2X0.06FPE' : (0.2,0.06),
+        '0.2X0.09'    : (0.2,0.09),
+        '0.2X0.2'     : (0.2,0.2),
+        '0.2X0.2FPA'  : (0.2,0.2),
+        '0.2X0.2FPB'  : (0.2,0.2),
+        '0.2X0.2FPC'  : (0.2,0.2),
+        '0.2X0.2FPD'  : (0.2,0.2),
+        '0.2X0.2FPE'  : (0.2,0.2),
+        '0.2X0.5'     : (0.2,0.5),
+        '0.2X29'      : (0.2,29.0),
+        '0.3X0.06'    : (0.3,0.06),
+        '0.3X0.09'    : (0.3,0.09),
+        '0.3X0.2'     : (0.3,0.2),
+        '0.5X0.5'     : (0.5,0.5),
+        '1X0.06'      : (1.0,0.06),
+        '1X0.2'       : (1.0,0.2),
+        '2X2'         : (2.0,2.0),
+        '6X0.06'      : (6.0,0.06),
+        '6X0.2'       : (6.0,0.2),
+        '6X0.5'       : (6.0,0.5),
+        '6X6'         : (6.0,6.0),
+        '36X0.05N45'  : (36.0,0.05),
+        '36X0.05P45'  : (36.0,0.05),
+        '36X0.6N45'   : (36.0,0.6),
+        '36X0.6P45'   : (36.0,0.6),
+        '52X0.05'     : (52.0,0.034),
+        '52X0.1'      : (52.0,0.1),
+        '52X0.2'      : (52.0,0.2),
+        '52X0.5'      : (52.0,0.5),
+        '52X2'        : (52.0,2.0),
+    },
+
+# geometric_slits: are never applied to obsmode, have no effect on throughput
+'geometric_slits' : {
+        '50CCD'       : (52.0,52.0),
+        '25MAMA'      : (25.0,25.0),
+    },
+
+'slit_display_names': {
+        '0.05x29': '0.05X29',
+         '0.05x31nda': '0.05X31NDA',
+         '0.05x31ndb': '0.05X31NDB',
+         '0.09x29': '0.09X29',
+         '0.1x0.03': '0.1X0.03',
+         '0.1x0.06': '0.1X0.06',
+         '0.1x0.09': '0.1X0.09',
+         '0.1x0.2': '0.1X0.2',
+         '0.2x0.05nd': '0.2X0.05ND',
+         '0.2x0.06': '0.2X0.06',
+         '0.2x0.06fpa': '0.2X0.06FPA',
+         '0.2x0.06fpb': '0.2X0.06FPB',
+         '0.2x0.06fpc': '0.2X0.06FPC',
+         '0.2x0.06fpd': '0.2X0.06FPD',
+         '0.2x0.06fpe': '0.2X0.06FPE',
+         '0.2x0.09': '0.2X0.09',
+         '0.2x0.2': '0.2X0.2',
+         '0.2x0.2fpa': '0.2X0.2FPA',
+         '0.2x0.2fpb': '0.2X0.2FPB',
+         '0.2x0.2fpc': '0.2X0.2FPC',
+         '0.2x0.2fpd': '0.2X0.2FPD',
+         '0.2x0.2fpe': '0.2X0.2FPE',
+         '0.2x0.5': '0.2X0.5',
+         '0.2x29': '0.2X29',
+         '0.3x0.05nd': '0.3X0.05ND',
+         '0.3x0.06': '0.3X0.06',
+         '0.3x0.09': '0.3X0.09',
+         '0.3x0.2': '0.3X0.2',
+         '0.5x0.5': '0.5X0.5',
+         '1x0.06': '1X0.06',
+         '1x0.2': '1X0.2',
+         '25mama': '25MAMA',
+         '2x2': '2X2',
+         '31x0.05nda': '31X0.05NDA',
+         '31x0.05ndb': '31X0.05NDB',
+         '31x0.05ndc': '31X0.05NDC',
+         '36x0.05n45': '36X0.05N45',
+         '36x0.05p45': '36X0.05P45',
+         '36x0.6n45': '36X0.6N45',
+         '36x0.6p45': '36X0.6P45',
+         '50ccd': '50CCD',
+         '52x0.05': '52X0.05',
+         '52x0.1': '52X0.1',
+         '52x0.2': '52X0.2',
+         '52x0.5': '52X0.5',
+         '52x2': '52X2',
+         '6x0.06': '6X0.06',
+         '6x0.2': '6X0.2',
+         '6x0.5': '6X0.5',
+         '6x6': '6X6',
+         'f25ciii': 'F25CIII',
+         'f25cn182': 'F25CN182',
+         'f25cn270': 'F25CN270',
+         'f25lya': 'F25LYA',
+         'f25mgii': 'F25MGII',
+         'f25nd3': 'F25ND3',
+         'f25nd5': 'F25ND5',
+         'f25ndq1': 'F25NDQ1',
+         'f25ndq2': 'F25NDQ2',
+         'f25ndq3': 'F25NDQ3',
+         'f25ndq4': 'F25NDQ4',
+         'f25qtz': 'F25QTZ',
+         'f25srf2': 'F25SRF2',
+         'f28x50lp': 'F28X50LP',
+         'f28x50oii': 'F28X50OII',
+         'f28x50oiii': 'F28X50OIII'
+ },
+
+# any slit whose slit width (arcsec) in larger than this max value is
+# treated as though it is slitless spec for the purposes of convolution
+'max_slitless_spec_width' : 5.0, # arcsec
+}

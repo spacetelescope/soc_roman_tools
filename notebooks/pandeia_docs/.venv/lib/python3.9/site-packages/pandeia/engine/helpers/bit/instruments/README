@@ -1,0 +1,25 @@
+THIS ENTIRE instruments DIRECTORY IS COPIED FROM THE pyetc REPO ON 20211020.
+ORIGINAL CONTENT OF THIS FILE IS BELOW.  NOTES:
+- the aptquery->pweb step does not require the instruments directory
+- this directory is only required in pandeia for the pweb->peng step
+----------------------------------------------------------------------------
+
+Web Refactoring: etc_instruments -> instruments
+
+This package is installed as pyetc.instruments
+
+Your instrument package will appear as pyetc.instruments.telescope.instrument_name
+
+web code will appear as pyetc.instruments.telescope.instrument_name.web
+	(this is not the current configuration, but will be)
+
+engine code will appear as pyetc.instruments.telescope.instrument_name.engine
+
+	** DO NOT assume that you can use 'pyetc.instruments.%s.%s.engine'
+	** to find your engine code.
+
+	DO use
+		m = pyetc.main.tools.find_instrument('telescope','instrument')
+		# returns a module/package
+	to find your instrument engine package.
+

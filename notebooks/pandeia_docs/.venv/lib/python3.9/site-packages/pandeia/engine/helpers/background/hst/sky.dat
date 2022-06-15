@@ -1,0 +1,13 @@
+#
+#   mapping spectrum files 
+#   keep this in sync with 
+#       https://github.com/spacetelescope/pyetc/blob/master/pyetc/etc_web/etc/sky.dat
+#
+{'earthshine': '$PYSYN_CDBS/etc/background/earthshine_model_001.fits',
+ 'helium':     '$PYSYN_CDBS/etc/background/el10830a_002.fits',
+ 'zodi':       '$PYSYN_CDBS/etc/background/zodiacal_model_001.fits',
+ 'el1215a'   : '$PYSYN_CDBS/etc/background/el1215a_004.fits',
+ 'el1302a'   : '$PYSYN_CDBS/etc/background/el1302a_004.fits',
+ 'el1356a'   : '$PYSYN_CDBS/etc/background/el1356a_004.fits',
+ 'el2471a'   : '$PYSYN_CDBS/etc/background/el2471a_004.fits',
+}

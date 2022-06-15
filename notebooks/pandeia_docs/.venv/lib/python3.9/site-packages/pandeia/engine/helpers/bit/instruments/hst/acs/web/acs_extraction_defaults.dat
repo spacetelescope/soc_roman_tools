@@ -1,0 +1,23 @@
+# Dictionary containing the photometric extraction values for 
+# "shape" and "size" when users choose the "default" or "recommended"
+# values for ACS modes.
+#
+# key: (target_type, science_mode)
+# value: either (shape, size) or a dictionary indexed by detector yielding (shape, size)
+#   shape = 'circle'|'percent'|'rectangle'|'square'
+#    size = value in arcsec for circles,
+#                    pixels for squares and rectangles,
+#                    unitless for percent
+
+#
+{ ('point', 'imaging')    : ('percent', 80.0),
+  ('point', 'rampfilter') : ('percent', 80.0),
+  ('point', 'spectroscopic') : { 'hrc' : ('rectangle',  (9,1)),
+                                 'sbc' : ('rectangle', (15,1)),
+                                 'wfc' : ('rectangle',  (5,1)) },
+  ('extended', 'imaging') : ('square', 2),
+  ('extended', 'rampfilter'): ('square', 2.0),
+  ('extended', 'spectroscopic') : { 'hrc' : ('rectangle', (2,1)),
+                                    'sbc' : ('rectangle', (2,1)),
+                                    'wfc' : ('rectangle', (2,1))},
+}

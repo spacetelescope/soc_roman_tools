@@ -1,0 +1,98 @@
+# This file contains attributes of the COS instrument,
+# that are not directly related to the COS detectors,
+# which have their attributes segregated in a separate
+# detector_config.dat file.
+#
+# These attributes are used at the time the instrument
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+
+{
+'name': 'cos',
+# height and width in arcsec
+'aperture_height': 2.5,
+'aperture_width': 2.5,
+
+# 'bandpass_limits' specifies the bandpass limits provided by the instrument teams
+# for each filter. Flux outside of these ranges is considered and reported to
+# be a filter leak.  The numbers are provided in PR74482/74483 and in
+# reference to ticket #983.
+'bandpass_limits': {
+    'mirrora': (1150.0, 4000.0),
+    'mirrorb': (1150.0, 4000.0),
+},
+# filtered slits have a throughput which includes filter
+# transmission losses, but no diffraction losses.
+'filtered_slits': {
+  # the boa has a filter
+  'boa': (2.5, 'circle'),
+  # the psa, due to its physical location, has an effect on throughput
+  # (acting as if it has a filter) even though it has no filter
+  'psa': (2.5, 'circle'),
+},
+'slit_display_names': {
+    'boa': 'Bright Object Aperture',
+    'psa': 'Primary Science Aperture',
+  },
+'fuv': {
+    # The following implements #832, PR72859: the extraction box height
+    # is dependent on central wavelength and segment, the resel is
+    # dependent on central wavelength. It also implements #1080, PR77365:
+    # certain heights may depend on grating, while other may depend
+    # on both grating and central wavelength.
+
+    # Basic defaults that are used when the box sizes do not depend on
+    # grating nor central wavelength.
+    'default_spectral_box_height': 47,
+    'default_spectral_box_width':   6,
+
+    # Defaults that are used when only the grating matters. Entries here
+    # supersede the defaults from above. In fact, with the current
+    # settings in the input page for the FUV gratings, this will always
+    # supersede the default_spectral_box_height constant defined above. But
+    # the mechanism should work even when that doesn't happen.
+    'spectral_box_height_defaults': {'g130m': {'a': 35, 'b': 35},
+                                     'g160m': {'a': 35, 'b': 35},
+                                     'g140l': {'a': 57, 'b': 57}
+                                    },
+
+    # Spectral box sizes to be used when both grating and central wavelength
+    # have to be taken into account. Entries here supersede entries from above.
+    'spectral_box_height': {'g130m':
+                                    {'1055': {'a': 65, 'b': 63},
+                                     '1096': {'a': 63, 'b': 59},
+                                     '1222': {'a': 47, 'b': 45}},
+                            'g140l':
+                                    {'800':  {'a': 30, 'b': 30}}
+                           },
+    'spectral_box_width': {'g130m':
+                                   {'1055': 8,
+                                    '1096': 9}
+                          },
+
+    'spectral_resolution': {'default': 6,
+                            ('g130m',1055): 8,
+                            ('g130m',1096): 9
+                            },
+
+    'grating_resolution': {'g130m': '20,000 - 24,000',
+                           'g140l': '2000   - 5,000',
+                           'g160m': '20,000 - 24,000'},
+}, # end fuv
+
+'nuv': {
+    # height and width in arcsec
+    'aperture_height': 2.5,
+    'aperture_width': 2.5,
+    'spectral_resolution': 3, # the engine code calls this pixels_per_resel
+    'default_spectral_box_height': 8,
+    'default_spectral_box_width': 3,  # identical with spectral resolution
+    'spectral_box_height': 8,
+    'spectral_box_width': 3,  # identical with spectral resolution
+
+    'grating_resolution': {'g185m': '16,000 - 20,000',
+                           'g225m': '20,000 - 24,0000',
+                           'g230l': '1,550  - 2,900',
+                           'g285m': '20,000 - 24,000'},
+    } # end nuv
+}

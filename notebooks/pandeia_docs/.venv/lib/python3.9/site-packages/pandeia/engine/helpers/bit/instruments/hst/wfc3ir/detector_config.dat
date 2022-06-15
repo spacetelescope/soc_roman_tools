@@ -1,0 +1,27 @@
+# This file contains attributes of the WFC3IR detector.
+#
+# These attributes are used at the time the detector
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+#
+# These numbers are not to date, and are taken from the
+# initial Java ETC file. These will need updating to match
+# the numbers used by the ETC that we will be comparing to.
+#
+# The gain value below is also a hidden value in the web
+# input form.
+{
+'name':'wfc3ir',
+'ir':{
+    'element_type': 'ccd',
+    'default_gain': 2.5,
+    'xpixels': 1014,
+    'ypixels': 1014,
+    'pixel_height': 0.1211,
+    'pixel_width': 0.1355,
+    'dark_current_rate': 0.05,
+    'readnoise': {2.5:14.6},
+  }, # end ir (there's only one detector)
+}
+
+

@@ -1,0 +1,10 @@
+{
+    "noise": {
+        "crs": null,
+        "ffnoise": null,
+        "scatter": null
+    },
+    "effects": {
+        "saturation": null
+    }
+}

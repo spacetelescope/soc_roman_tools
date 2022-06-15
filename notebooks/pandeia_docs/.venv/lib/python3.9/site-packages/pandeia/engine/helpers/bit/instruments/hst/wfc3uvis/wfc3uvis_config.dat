@@ -1,0 +1,162 @@
+# This file contains attributes of the WFC3UVIS instrument,
+# that are not directly related to the WFC3UVIS detectors.
+# These have their attributes segregated in a separate
+# detector_config.dat file.
+#
+# These attributes are used at the time the instrument
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+#
+# These numbers are not to date, and are taken from the
+# initial Java ETC file. These will need updating to match
+# the numbers used by the ETC that we will be comparing to.
+{
+'name':'wfc3uvis',
+'uvis1':{'spectral_resolution': 3},
+'uvis2':{'spectral_resolution': 3},
+
+# 'bandpass_limits' specifies the bandpass limits provided by the instrument teams
+# for each filter. Flux outside of these ranges is considered and reported to
+# be a filter leak.  The numbers are provided in PR74482/74483 and in
+# reference to ticket #983.
+'bandpass_limits': {
+    'f218w': (1860.0, 4340.0),
+    'f225w': (1860.0, 3440.0),
+    'f275w': (2150.0, 3920.0),
+    'f336w': (2950.0, 3790.0),
+    'f390w': (3150.0, 4590.0),
+    'f438w': (3750.0, 4780.0),
+    'f475w': (3890.0, 5690.0),
+    'f555w': (4320.0, 7850.0),
+    'f606w': (4540.0, 7430.0),
+    'f625w': (5330.0, 7260.0),
+    'f775w': (6720.0, 8740.0),
+    'f814w': (6880.0, 10090.0),
+    'f390m': (3610.0, 4080.0),
+    'f410m': (3940.0, 4340.0),
+    'f467m': (4472.0, 4920.0),
+    'f547m': (4968.0, 6015.0),
+    'f621m': (3180.0, 6720.0),
+    'f689m': (6370.0, 7460.0),
+    'f763m': (7070.0, 8160.0),
+    'f845m': (7750.0, 9500.0),
+    'fq422m': (3990.0, 4460.0),
+    'f280n': (2180.0, 4400.0),
+    'f343n': (3170.0, 3724.0),
+    'f373n': (3673.0, 3793.0),
+    'f395n': (3864.0, 4049.0),
+    'f469n': (4641.0, 4737.0),
+    'f487n': (4804.0, 4941.0),
+    'f502n': (4950.0, 5082.0),
+    'f631n': (6250.0, 6361.0),
+    'f645n': (6360.0, 6550.0),
+    'f656n': (6541.0, 6579.0),
+    'f657n': (6426.0, 6733.0),
+    'f658n': (3100.0, 6615.0),
+    'f665n': (6494.0, 6819.0),
+    'f673n': (6650.0, 6900.0),
+    'f680n': (6530.0, 7300.0),
+    'f953n': (9260.0, 9592.0),
+    'fq232n': (2279.0, 3740.0),
+    'fq243n': (2100.0, 4010.0),
+    'fq378n': (3700.0, 3900.0),
+    'fq387n': (3842.0, 3904.0),
+    'fq436n': (4314.0, 4419.0),
+    'fq437n': (4337.0, 4403.0),
+    'fq492n': (4825.0, 5048.0),
+    'fq508n': (4965.0, 5218.0),
+    'fq575n': (5733.0, 5777.0),
+    'fq619n': (6106.0, 6294.0),
+    'fq634n': (6254.0, 6448.0),
+    'fq672n': (6694.0, 6738.0),
+    'fq674n': (6708.0, 6748.0),
+    'fq727n': (7152.0, 7398.0),
+    'fq750n': (7360.0, 7640.0),
+    'fq889n': (8816.0, 8988.0),
+    'fq906n': (8770.0, 9144.0),
+    'fq924n': (8950.0, 9342.0),
+    'fq937n': (9070.0, 9466.0),
+    'f300x': (1860.0, 4860.0),
+    'f475x': (3610.0, 7640.0),
+    'f200lp': (1880.0, 10980.0),
+    'f350lp': (2990.0, 11000.0),
+    'f600lp': (5830.0, 11000.0),
+    'f850lp': (8090.0, 11000.0),
+},
+
+'filters': {
+    'FQ232N': {'name':'CII] 2326','width':3.4, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ387N': {'name':'[NeIII] 3868','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ436N': {'name':'H-gamma + [OIII] 4363','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ437N': {'name':'[OIII] 4363','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ575N': {'name':'[NII] 5754','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ619N': {'name':'CH4 6194','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ889N': {'name':'CH4 25/km-agt','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ906N': {'name':'CH4 2.5/km-agt','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ924N': {'name':'CH4 0.25/km-agt','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ937N': {'name':'CH4 0.025/km-agt','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'FQ243N': {'name':'[Ne IV] 2425'},
+    'FQ378N': {'name': 'z([O II] 3726)'},
+    'FQ422M': {'name': 'Blue Continuum'},
+    'FQ492N': {'name': 'z(HB)'},
+    'FQ508N': {'name': 'z([O III] 5007)'},
+    'FQ634N': {'name': '6194 Continuum'},
+    'FQ672N': {'name': '[S II] 6717'},
+    'FQ674N': {'name': '[S II] 6731'},
+    'FQ727N': {'name': 'CH4 7270'},
+    'FQ750N': {'name': '7270 Continuum'},
+    'F200LP': {'name': 'Clear'},
+    'F300X':  {'name': 'Extremely wide UV'},
+    'F555W': {'name': 'WFPC2 V'},
+    'F350LP': {'name':' Long Pass'},
+    'F475X': {'name':'Extremely wide blue' },
+    'F600LP': {'name': 'Long Pass'},
+    'F850LP': {'name':'SDSS z' },
+    'F218W': {'name':'ISM feature' },
+    'F225W': {'name':'UV Wide' },
+    'F275W': {'name':'UV Wide' },
+    'F336W': {'name': 'U, Stromgren u'},
+    'F390W': {'name':'Washington C' },
+    'F438W': {'name': 'WFPC2 B'},
+    'F475W': {'name': 'SDSS g\''},
+    'F606W': {'name':'WFPC2 Wide V' },
+    'F625W': {'name':'SDSS r\'' },
+    'F775W': {'name':'SDSS i\''},
+    'F814W': {'name': 'WFPC2 Wide I' },
+    'F390M': {'name':'Ca II Continuum' },
+    'F410M': {'name': 'Stromgren v'},
+    'F467M': {'name':'Stromgren b' },
+    'F547M': {'name': 'Stromgren y'},
+    'F621M': {'name':' 11% passband' },
+    'F689M': {'name': '11% passband' },
+    'F763M': {'name': '11% passband' },
+    'F845M': {'name': '11% passband'},
+    'F280N': {'name':'Mg II 2795/2802' },
+    'F343N': {'name': '[NeV] 3426'},
+    'F373N': {'name': '[O II] 3726/3728'},
+    'F395N': {'name': 'CaII 3933/3968'},
+    'F469N': {'name': 'HeII 4686'},
+    'F487N': {'name': 'HB 4861'},
+    'F502N': {'name': '[O III] 5007'},
+    'F631N': {'name': '[O I] 6300'},
+    'F645N': {'name': 'Continuum'},
+    'F656N': {'name': 'Ha 6562'},
+    'F657N': {'name': 'Wide H alpha + [NII]' },
+    'F658N': {'name': '[NII] 6583'},
+    'F665N': {'name': 'z(Ha + [N II])'},
+    'F673N': {'name': '[SII] 6717/6731'},
+    'F680N': {'name': 'z(Ha + [N II])' },
+    'F953N': {'name': '[S III] 9532' },
+  }, #filter inforamation taken from wfc3 instrument handbook
+
+} # end dict

@@ -1,0 +1,39 @@
+{
+    "instrument" : "STIS",
+    "binx" : 1,
+    "crsplit" : 1,
+    "gain" : 1,
+    "filter0" : {
+        ("MIRROR",) : {
+            "science_mode" : "Imaging",
+            "detector" : "nuvmama",
+            "nuvmamaaperture0" : "%aperture%",
+        },
+        ("E230H","E230M",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "nuvmama_0%%filter0%%",
+            "%%filter0%%aperture0" : "%aperture%",
+            "%filter0%_CentralWavelength" : "%centralWavelength%",
+            "obswave" : "%obswave%",
+        },
+        ("G230L",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "nuvmama_0%%filter0%%",
+            "nuvmamaaperture0" : "%aperture%",
+            "obswave" : "%obswave%",
+        },
+        ("G230M",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "nuvmama_0%%filter0%%",
+            "nuvmamaaperture0" : "%aperture%",
+            "%filter0%_CentralWavelength" : "%centralWavelength%",
+            "obswave" : "%obswave%",
+        },
+        ("PRISM",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "nuvmama_0%%filter0%%",
+            "prismaperture0" : "%aperture%",
+            "obswave" : "%obswave%",
+        },
+    },
+}

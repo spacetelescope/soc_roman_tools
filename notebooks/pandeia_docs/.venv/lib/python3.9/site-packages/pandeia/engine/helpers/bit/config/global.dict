@@ -1,0 +1,37 @@
+{
+ 'EarthshineSpec': 'EarthshineStandard',
+ 'EarthshineStandard': 'Average',
+ 'Time': '1.0',
+ 'ZodiSpec': 'ZodiStandard',
+ 'ZodiStandard': 'Average',
+ 'fRedshift': '0.0',
+ 'fbpgsfile': '%stellarType%',
+ 'febv': '0.0',
+ 'fsorigin': 'SpectrumKurucz',
+ 'fsourceType': 'point',
+ 'fftype': 'fnormalize.bandpass',
+ 'rn_flux_bandpass': '%magnitude%',
+ 'magType': {
+     ('',): {
+         'fftype_filters':         'fNormalizeByFilter.ubvri',
+         'filter.ubvri':           'Johnson/V',
+         'rn_flux_bandpass_units': 'vegamag',
+     },
+     ('galex',): {
+         'magBand': {
+             ('Galex/F',): {
+                 'fftype_filters':         'fNormalizeByFilter.sloan',
+                 'filter.sloan':           'Galex/FUV',
+                 'rn_flux_bandpass_units': 'abmag',
+             },
+             ('Galex/N',): {
+                 'fftype_filters':         'fNormalizeByFilter.sloan',
+                 'filter.sloan':           'Galex/NUV',
+                 'rn_flux_bandpass_units': 'abmag',
+             },
+         },
+     },
+
+ },
+ 'simmode': 'SNR',
+}

@@ -1,0 +1,22 @@
+{
+     'instrument': 'COS',
+     'cosaperture0': '%aperture%',
+     'filter0': {
+         ('G185M', 'G225M', 'G285M', 'G230L'): {
+            'science_mode': 'Spectroscopic',
+            'disperser': 'nuv_0%%filter0%%',
+            '%filter0%_CentralWavelength': '%centralWavelength%',
+            'obswave': '%obswave%',
+         },
+         ('MIRRORA', 'MIRRORB'): {
+            'science_mode': 'Imaging',
+            'Mirror': '%%filter0%%',
+         },
+    },
+ }
+
+# Based on the query value of filter0, set up derived variable names and values.
+#   .e.g. for filter0 == G185M and centralWavelength=5200.0
+#  set G185M_CentralWavelength = 5200.0
+#
+#  %%var%% == lowercase(value(var)),  e.g.  g185m

@@ -1,0 +1,17 @@
+{
+     'instrument': 'COS',
+     'science_mode': 'Spectroscopic',
+     'cosaperture0': '%aperture%',
+     'filter0': {
+        ("MIRRORA","MIRRORB",) : {
+            "science_mode" : "Imaging",
+            "detector" : "fuvmama",
+            "fuvmamaaperture0" : "%aperture%",
+        },
+         ('G130M', 'G160M', 'G140L',): {
+            'disperser': 'fuv_0%%filter0%%',
+            '%filter0%_CentralWavelength': '%centralWavelength%',
+            'obswave': '%obswave%',
+        },
+      },
+ }

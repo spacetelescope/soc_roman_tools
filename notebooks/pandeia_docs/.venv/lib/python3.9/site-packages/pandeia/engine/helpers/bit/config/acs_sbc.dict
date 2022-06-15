@@ -1,0 +1,20 @@
+{
+    "instrument" : "ACS",
+    "filter0" : {
+        ("F165LP","F150LP","F140LP","F125LP","F122M","F115LP",) : {
+            "science_mode" : "Imaging",
+            "sbcfilt0" : "%filter0%",
+            "detector" : "sbc",
+        },
+        ("PR130L",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "sbc_0%filter0%",
+            "obswave" : "%obswave%",
+        },
+        ("PR110L",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "sbc_0%filter0%",
+            "obswave" : "%obswave%",
+        },
+    },
+}

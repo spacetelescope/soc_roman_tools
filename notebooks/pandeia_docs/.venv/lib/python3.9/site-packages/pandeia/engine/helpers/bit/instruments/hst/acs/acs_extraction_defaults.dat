@@ -1,0 +1,36 @@
+# Dictionary containing the photometric extraction values for 
+# "shape" and "size" when users choose the "default" or
+# "recommended" values for ACS modes.
+#
+# This file is read by the Data object constructor called
+# when instruments/data.py is imported.
+#
+# key: (target_type, science_mode)
+# value: either (shape, size) or a dictionary indexed by detector yielding (shape, size)
+#   shape = 'circle'|'percent'|'rectangle'|'square'
+#    size = value in arcsec for circles,
+#                    pixels for squares and rectangles,
+#                    unitless for percent
+#
+{ ('point', 'imaging')    : ('percent', 80.0),
+  ('point', 'rampfilter') : ('percent', 80.0),
+  ('point', 'spectroscopic') : { 'hrc' : ('rectangle',  (9,1)),
+                                 'sbc' : ('rectangle', (15,1)),
+                                 'wfc' : ('rectangle',  (5,1)) },
+  ('extended', 'imaging') : ('square', 2),
+  ('extended', 'rampfilter'): ('square', 2.0),
+  ('extended', 'spectroscopic') : { 'hrc' : ('square', 2.0),
+                                    'sbc' : ('square', 2.0),
+                                    'wfc' : ('square', 2.0)},
+}
+
+# Or should it be code?
+#def return_defaults(targettype, mode, detector):
+#
+#    if targettype == 'extended':
+#        return ('square', 2.0)
+#    else:
+#        if mode in ('imaging', 'rampfilter'):
+#            return ('percent', 80.0)
+#        else:
+#            return ptspec[detector]

@@ -1,0 +1,91 @@
+
+# This file contains tables indicating the psf sharpness
+#
+# These reflect Cycle 19 values for wfc3, taken from table 6.7
+#
+#
+# These tables are read at the time the instrument object gets initialized.
+# The code that reads this file lives in pyetc/engine/instrument.py.
+#
+
+{
+# the following are used to select which table should be used
+'modes': ['detector','location','gyromode'],
+
+# detector values: uvis, ir
+# location values: center, corner
+# gyromode values: normal, twogyro
+'quantities':['lambda', 'sharpness'],
+'units': 'nanometers',
+
+'tables': [
+{
+'detector':'uvis1',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[200,       0.040,], 
+[300,       0.051,], 
+[400,       0.055,], 
+[500,       0.055,], 
+[600,       0.053,], 
+[700,       0.050,], 
+[800,       0.047,], 
+[900,       0.042,], 
+[1000,      0.038,], 
+[1100,      0.034,], 
+]
+},
+{
+'detector':'uvis1',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[200,       0.041,],
+[300,       0.056,],
+[400,       0.061,],
+[500,       0.061,],
+[600,       0.058,],
+[700,       0.053,],
+[800,       0.048,],
+[900,       0.043,],
+[1000,      0.039,],
+[1100,      0.035,],
+]
+},
+{
+'detector':'uvis2',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[200,       0.040,], 
+[300,       0.051,], 
+[400,       0.055,], 
+[500,       0.055,], 
+[600,       0.053,], 
+[700,       0.050,], 
+[800,       0.047,], 
+[900,       0.042,], 
+[1000,      0.038,], 
+[1100,      0.034,], 
+]
+},
+{
+'detector':'uvis2',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[200,       0.041,],
+[300,       0.056,],
+[400,       0.061,],
+[500,       0.061,],
+[600,       0.058,],
+[700,       0.053,],
+[800,       0.048,],
+[900,       0.043,],
+[1000,      0.039,],
+[1100,      0.035,],
+]
+},
+]
+}

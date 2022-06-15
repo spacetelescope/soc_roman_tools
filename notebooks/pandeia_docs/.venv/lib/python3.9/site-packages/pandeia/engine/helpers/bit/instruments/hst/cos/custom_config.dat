@@ -1,0 +1,87 @@
+# This configuration file provides configuration information for
+# the custom functions defined for COS in its instr_functions module
+#
+# - FUV segment locations on the detectors, designed to exclude the
+#   geocoronal lines in specacq mode.
+# - NUV stripe heights for specacq mode.
+# - mirror B correction factor for NUV imaging.
+#
+# These attributes are used at the time the instrument
+# object gets initialized. The code that reads this file
+# lives in pyetc/engine/initialize.py; the actual handling
+# is done by instrument-dependent code in
+# pyetc/instruments/hst/cos/instr_functions.py
+
+{
+  'fuv': {
+    'windows':{
+        # In spec acq mode, multiple windows are defined for each central
+        # wavelength. Each window definition is a tuple defining the lower
+        # and upper wavelengths in Angstroms, and an extraction height in
+        # pixels. These ranges are designed to keep out contamination from
+        # geocoronal lines, thus they can't be inferred from the passband.
+        #
+        # History
+        # -------
+        # updated Oct.  5, 2012 from PR 72193
+        # updated Mar. 20, 2017 from PR 86807
+        #
+        # The two updates below act as placeholders for spec acqmode.
+        # They prevent choking of the dict ingestion code that is
+        # summoned at instrument configuration time. 
+        #
+        # updated Jan. 19, 2018 from PR 89565 (even though specacq mode is not
+        # updated Feb. 12, 2018 from PR 89566 being offered at this time)
+        #
+        #
+        'g140l': {1280: {'a':[(1397.2, 1982.0, 112.0)]},
+                  1105: {'a':[(1409.1, 1961.4, 112.0),   (1136.79, 1173.06, 112.0)]},
+                   800: {'a':[( 913.,  1951.,  112.0)]}},
+        'g130m': {1291: {'a':[(1364.07, 1429.40, 112.0), (1312.06, 1352.70, 112.0)],
+                         'b':[(1222.90, 1273.06, 112.0), (1136.10, 1210.58, 112.0)]},
+                  1300: {'a':[(1363.80, 1439.12, 112.0), (1311.79, 1352.42, 112.0)],
+                         'b':[(1222.65, 1282.81, 112.0), (1145.84, 1210.33, 112.0)]},
+                  1309: {'a':[(1363.35, 1448.67, 112.0), (1311.16, 1351.98, 112.0)],
+                         'b':[(1222.41, 1292.37, 112.0), (1155.40, 1210.08, 112.0)]},
+                  1318: {'a':[(1363.91, 1458.21, 112.0), (1320.72, 1352.54, 112.0)],
+                         'b':[(1222.42, 1301.88, 112.0), (1164.91, 1210.10, 112.0)]},
+                  1327: {'a':[(1363.15, 1467.64, 112.0), (1330.18, 1351.79, 112.0)],
+                         'b':[(1222.45, 1298.45, 112.0),(1174.34, 1210.13, 112.0)]}},
+        'g160m': {1533: {'b':[(1342.,   1515.,   112.0)],
+                         'a':[(1533.,   1707.  , 112.0)]},
+                  1577: {'a':[(1579.61, 1748.53, 112.0)],
+                         'b':[(1388.38, 1556.60, 112.0)]},
+                  1589: {'a':[(1591.29, 1760.17, 112.0)],
+                         'b':[(1399.99, 1568.23, 112.0)]},
+                  1600: {'a':[(1602.68, 1771.56, 112.0)],
+                         'b':[(1411.39, 1579.62, 112.0)]},
+                  1611: {'a':[(1614.63, 1783.47, 112.0)],
+                         'b':[(1423.26, 1591.49, 112.0)]},
+                  1623: {'a':[(1626.73, 1795.56, 112.0)],
+                         'b':[(1435.31, 1603.54, 112.0)]}
+         }
+       }
+    },
+  'nuv':
+    {
+    'mirrorb_correction': 1.48,
+
+    # For NUV specacq, we store only the window height. All wavelength information
+    # necessary for building the ranges is taken directly from the passband.
+    #
+    'specacq_extraction_height':{
+         'g185m': {'a': [80.0,],
+                   'b': [80.0,],
+                   'c': [80.0,]},
+         'g225m': {'a': [77.0,],
+                   'b': [80.0,],
+                   'c': [80.0,]},
+         'g230l': {'a': [80.0,],
+                   'b': [80.0]},
+         'g285m': {'a': [80.0,],
+                   'b': [80.0,],
+                   'c': [80.0,]},
+         },
+
+    }
+  }

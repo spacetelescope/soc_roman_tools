@@ -1,0 +1,7 @@
+{
+    "science_mode" : "Imaging",
+    "instrument" : "WFC3IR",
+    "gain" : "2.5",
+    "crsplit" : "1",
+    "irfilt0" : "%filter0%",
+}

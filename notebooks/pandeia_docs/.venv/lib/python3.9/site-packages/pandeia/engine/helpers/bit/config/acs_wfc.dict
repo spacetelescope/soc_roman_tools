@@ -1,0 +1,27 @@
+{
+    "instrument" : "ACS",
+    "crsplit" : "1",
+    "gain" : "1",
+    "filter0" : {
+        ("F475W","F502N","F550M","F555W","F606W","F625W","F658N","F775W",
+         "F850LP","F892N","CLEAR1S","CLEAR1L",
+         "POL_UV","POL0UV","POL60UV","POL120UV",) : {
+            "science_mode" : "Imaging",
+            "wfcfilt0" : "%filter0%",
+            "wfcfilt1" : "CLEAR2L",
+            "detector" : "wfc",
+        },
+        ("F660N","F435W","F814W","CLEAR2L") : {
+            "science_mode" : "Imaging",
+            "wfcfilt0" : "CLEAR1L",
+            "wfcfilt1" : "%filter0%",
+            "detector" : "wfc",
+        },
+        ("G800L",): {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "wfc_0G800L",
+            "wfcfilt1" : "CLEAR2L",
+            "obswave" : "%obswave%",
+        },
+    },
+}

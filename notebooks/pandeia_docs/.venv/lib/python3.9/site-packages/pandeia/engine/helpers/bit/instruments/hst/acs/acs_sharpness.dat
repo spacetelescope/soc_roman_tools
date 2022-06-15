@@ -1,0 +1,175 @@
+# This file contains tables indicating the psf sharpness
+#
+# Pedigree (provided by Jenna Ryon):
+# These values provided by George Hartig, using his PSF model IDL code for ACS. 
+# This model is discussed briefly in WFC3 ISRs 2009-38, 2009-37, 2008-41, and 
+# 2008-40. See the code and documentation provided on grit for more details: 
+# https://grit.stsci.edu/ryon/ee_interpolation
+#
+# These tables are read at the time the instrument object gets initialized.
+# The code that reads this file lives in pyetc/engine/instrument.py; the
+# actual handling is done by instrument-dependent code in
+# pyetc/instruments/hst/acs/instr_functions.py
+#
+
+{
+# the following are used to select which table should be used
+'modes': ['detector','location','gyromode'],
+
+# detector values: hrc, wfc, sbc
+# location values: center, corner
+# gyromode values: normal, twogyro
+'quantities':['lambda', 'sharpness'],
+'units': 'nanometers',
+
+'tables': [
+{
+'detector':'wfc',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[200, 0.043],
+[250, 0.043],
+[300, 0.043],
+[350, 0.043],
+[400, 0.045],
+[450, 0.045],
+[500, 0.044],
+[550, 0.045],
+[600, 0.044],
+[650, 0.043],
+[700, 0.041],
+[750, 0.039],
+[800, 0.037],
+[850, 0.033],
+[900, 0.027],
+[950, 0.027],
+[1000, 0.027],
+[1050, 0.028],
+[1100, 0.028],
+] 
+},
+
+{
+'detector':'wfc',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[200, 0.043],
+[250, 0.043],
+[300, 0.043],
+[350, 0.043],
+[400, 0.045],
+[450, 0.046],
+[500, 0.044],
+[550, 0.045],
+[600, 0.044],
+[650, 0.044],
+[700, 0.041],
+[750, 0.039],
+[800, 0.037],
+[850, 0.033],
+[900, 0.027],
+[950, 0.027],
+[1000, 0.027],
+[1050, 0.028],
+[1100, 0.028],
+]
+},
+
+{
+'detector':'sbc',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[115, 0.018],
+[120, 0.018],
+[130, 0.018],
+[140, 0.019],
+[150, 0.019],
+[160, 0.020],
+[170, 0.021],
+[180, 0.022],
+[190, 0.022],
+[200, 0.022],
+[210, 0.022],
+[220, 0.022],
+[230, 0.022],
+[240, 0.022],
+[250, 0.022],
+[260, 0.022],
+[270, 0.022],
+[280, 0.022],
+[290, 0.022],
+[300, 0.022],
+[600, 0.022],
+]
+},
+{
+'detector':'sbc',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[115, 0.020],
+[120, 0.020],
+[130, 0.020],
+[140, 0.020],
+[150, 0.021],
+[160, 0.022],
+[170, 0.022],
+[180, 0.023],
+[190, 0.023],
+[200, 0.023],
+[210, 0.023],
+[220, 0.023],
+[230, 0.023],
+[240, 0.023],
+[250, 0.023],
+[260, 0.023],
+[270, 0.023],
+[280, 0.023],
+[290, 0.023],
+[300, 0.023],
+[600, 0.023],
+]
+},
+{
+'detector':'hrc',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[200, 0.031],
+[300, 0.039],
+[400, 0.038],
+[500, 0.035],
+[600, 0.030],
+[700, 0.026],
+[800, 0.020],
+[900, 0.014],
+[1000, 0.011],
+[1100, 0.010],
+]
+},
+
+{
+'detector':'hrc',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[200, 0.032],
+[300, 0.040],
+[400, 0.038],
+[500, 0.034],
+[600, 0.030],
+[700, 0.025],
+[800, 0.020],
+[900, 0.014],
+[1000, 0.011],
+[1100, 0.010],
+]
+}
+
+]
+}
+    
+   

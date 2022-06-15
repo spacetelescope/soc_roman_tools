@@ -1,0 +1,80 @@
+# This file contains attributes of the COS detectors.
+#
+# These attributes are used at the time the detector
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+
+{
+'name': 'cos',
+'fuv': {
+    'xpixels': 16384,
+    'ypixels': 1024,
+
+    # Updated dark rate from HETC-497 - units are 'counts/sec/pixel'
+    'dark_current_rate': {'spectroscopic':    {'a': 2.01e-06,  'b': 1.70e-06},
+                          'spectroscopicacq': {'a': 3.13e-6, 'b': 2.83e-6}},
+
+    # These keys are used to pick out the correct enclosed energy table
+    'ee_lookup_keys': [	'grating', 'gyromode', 'detector'],
+
+    'element_type': 'mama',
+    'gyromode': 'normal',
+    'half_buffer': 2359000.0,  # units are counts
+
+    # PIXEL attributes
+    'pixel_height': {
+        'spectroscopic': {   'g130m': 0.106,
+                             'g140l': 0.097000000000000003,
+                             'g160m': 0.094},
+        'spectroscopicacq': {'g130m': 0.106,
+                             'g140l': 0.097000000000000003,
+                             'g160m': 0.094},
+        },
+    'pixel_width': {
+        'spectroscopic': {   'g130m': 0.021999999999999999,
+                             'g140l': 0.021000000000000001,
+                             'g160m': 0.021999999999999999},
+        'spectroscopicacq': {'g130m': 0.021999999999999999,
+                             'g140l': 0.021000000000000001,
+                             'g160m': 0.021999999999999999},
+        },
+
+
+    # SEGMENT attributes
+    'segnames': ['b','a'], #segment names ordered by wavelength
+    'segtype': 'physical',
+    # Use this dict to figure out the segment name if you didn't get enough of them
+    # (Most FUV grating/cenwave combinations have two segments, but some only have one.)
+    'segaltnames' : {('g140l',1105):['a'],
+                     ('g140l',800): ['a']}
+    }, # end fuv
+
+'nuv': {
+    # Updated dark rate from HETC-497
+    'dark_current_rate': 1.20e-03,
+
+    # These keys are used to pick out the correct enclosed energy table
+    'ee_lookup_keys': ['detector','gyromode'],
+
+    'element_type': 'mama',
+    'gyromode': 'normal',
+    'half_buffer': 2359000.0,
+
+    # PIXEL attributes
+    # pixel size given by ISR COS 2010-10 and the Cycle 21 COS IHB
+    'pixel_height': 0.0235,
+    'pixel_width': 0.0235,
+    'xpixels': 1024,
+    'ypixels': 1024,
+
+    # STRIPE attributes
+    'segnames': ['a','b','c'], # stripe names ordered by wavelength
+    'segtype': 'optical',  # an optical segment is called a 'stripe'
+    # Use this dict to figure out the stripe name if you didn't get enough of them
+    # (Most (grating, cenwave) combinations support 3 stripes, but some only support two.)
+    'segaltnames' : {('g230l',2635):['a','b'],
+            		 ('g230l',2950):['a','b'],
+		             ('g230l',3000):['a','b'],
+		             ('g230l',3360):['a','b']},
+    } # end nuv
+}

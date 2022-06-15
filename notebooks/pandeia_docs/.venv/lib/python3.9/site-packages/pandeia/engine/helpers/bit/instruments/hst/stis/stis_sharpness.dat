@@ -1,0 +1,116 @@
+# This file contains tables indicating the psf sharpness
+#
+#
+# These tables are read at the time the instrument object gets initialized.
+# The code that reads this file lives in pyetc/engine/instrument.py
+#
+{
+# the following are used to select which table should be used
+'modes': ['detector','location','gyromode'],
+
+# detector values: ccd, fuvmama, nuvmama
+# location values: center, corner
+# gyromode values: normal, twogyro
+'quantities':['lambda', 'sharpness'],
+'units': 'nanometers',
+
+'tables': [
+{
+'detector':'ccd',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[201,     0.015043  ,], 
+[225,     0.00796922,], 
+[229.9,   0.00796922,], 
+[234.4,   0.00796922,], 
+[236.5,   0.00796922,],
+[271.1,   0.02853364,],
+[280.2,   0.02511598,],
+[373.7,   0.05526213,],
+[500.6,   0.05092958,],
+[585.2,   0.03228426,],
+[722.9,   0.03584409,],
+[1100,    0.03536776,],
+] 
+},
+{
+'detector':'ccd',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[201,    0.015043    ,], 
+[225,    0.007969223 ,], 
+[229.9,  0.007969223 ,], 
+[234.4,  0.007969223 ,], 
+[236.5,  0.007969223 ,],
+[271.1,  0.028533641 ,],
+[280.2,  0.02511598  ,],
+[373.7,  0.055262133 ,],
+[500.6,  0.050929582 ,],
+[585.2,  0.03228426  ,],
+[722.9,  0.035844093 ,],
+[1100,   0.035367765 ,],
+] 
+},
+{
+'detector':'fuvmama',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[124.3,0.001564845,], 
+[137.4,0.001897823,], 
+[145.7,0.002162949,], 
+[159.5,0.002452111,], 
+[201  ,0.0035824,  ],
+] 
+},
+{
+'detector':'fuvmama',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[124.3,0.001564845,], 
+[137.4,0.001897823,], 
+[145.7,0.002162949,], 
+[159.5,0.002452111,], 
+[201  ,0.0035824,   ],
+] 
+},
+{
+'detector':'nuvmama',
+'location':'corner',
+'gyromode':'normal',
+'data': [
+[159.5,   0.002452111 ,], 
+[201,     0.0035824   ,], 
+[225  ,  0.001897823 ,], 
+[229.9,  0.001897823 ,], 
+[234.4,  0.001897823 ,],
+[236.5,  0.001897823 ,],
+[271.1,  0.006795115 ,],
+[280.2,  0.00598122  ,],
+[373.7,  0.013160345 ,],
+] 
+},
+{
+'detector':'nuvmama',
+'location':'center',
+'gyromode':'normal',
+'data': [
+[159.5,   0.002452111 ,], 
+[201,     0.0035824   ,], 
+[225  ,  0.001897823 ,], 
+[229.9,  0.001897823 ,], 
+[234.4,  0.001897823 ,],
+[236.5,  0.001897823 ,],
+[271.1,  0.006795115 ,],
+[280.2,  0.00598122  ,],
+[373.7,  0.013160345 ,],
+] 
+},
+
+]
+}
+
+  

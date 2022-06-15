@@ -1,0 +1,62 @@
+# This file contains attributes of the WFC3IR instrument,
+# that are not directly related to the WFC3IR detector.
+# These have their attributes segregated in a separate
+# detector_config.dat file.
+#
+# These attributes are used at the time the instrument
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+#
+# These numbers are not to date, and are taken from the
+# initial Java ETC file. These will need updating to match
+# the numbers used by the ETC that we will be comparing to.
+#
+# The gain value below is also a hidden value in the web
+# input form.
+{
+'name':'wfc3ir',
+'ir':{'spectral_resolution': 2},
+
+# 'bandpass_limits' specifies the bandpass limits provided by the instrument teams
+# for each filter. Flux outside of these ranges is considered and reported to
+# be a filter leak.  The numbers are provided in PR74482/74483 and in
+# reference to ticket #983.
+
+'bandpass_limits': {
+    'f098m': (8800.0, 10970.0),
+    'f105w': (8840.0, 12220.0),
+    'f110w': (8690.0, 14220.0),
+    'f125w': (10720.0, 14270.0),
+    'f126n': (12440.0, 12716.0),
+    'f127m': (12160.0, 13440.0),
+    'f128n': (12600.0, 13000.0),
+    'f130n': (11884.0, 13130.0),
+    'f132n': (13044.0, 13322.0),
+    'f139m': (13280.0, 14470.0),
+    'f140w': (11740.0, 16320.0),
+    'f153m': (14710.0, 16090.0),
+    'f160w': (13700.0, 17140.0),
+    'f164n': (16260.0, 16635.0),
+    'f167n': (16500.0, 16842.0),
+ },
+
+ 'filters': {
+        'f105w': {'name':'Wide Y'},
+        'f110w': {'name':'Wide YJ'},
+        'f125w': {'name':'Wide J'},
+        'f140w': {'name':'Wide JH gap,red grism reference'},
+        'f160w': {'name':'WFC3 H'},
+        'f098m': {'name':'Blue grism reference'},
+        'f127m': {'name':'H20/CH4 continuum'},
+        'f139m': {'name':'H20/CH4 line'},
+        'f153m': {'name':'H20 and NH3'},
+        'f126n': {'name':'[FeII]'},
+        'f128n': {'name':'Paschen B'},
+        'f130n': {'name': 'Paschen B Continuum'},
+        'f132n': {'name': 'Paschen B (redshifted)'},
+        'f164n': {'name': '[FeII]'},
+        'f167n': {'name': '[FeII] continuum'},
+  }, # end ir (there's only one detector)
+}
+
+

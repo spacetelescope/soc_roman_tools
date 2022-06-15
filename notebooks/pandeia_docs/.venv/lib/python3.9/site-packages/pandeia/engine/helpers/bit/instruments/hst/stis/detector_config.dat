@@ -1,0 +1,103 @@
+# This file contains attributes of the STIS detectors.
+#
+# These attributes are used at the time the detector
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py. Custom
+# handling of some detector attributes is done in
+# instruments/hst/stis/instrument_functions.py
+#
+# Original data taken from the JETC tables at
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/ETC/datafiles/init/PROPERTYSETS.TXT
+# and
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/ETC/datafiles/init/STIS.TXT
+# Some values were later updated, based on actual test results. Updates are
+# necessary since the tables above are updated by the obscure JETC database update
+# mechanism, and we just can'te find that information on the JETC update files (IB, Mar 2010).
+#
+# On April 8, 2010, the CCD critical wavelength was taken from
+# https://www.stsci.edu/trac/ssb/extic/browser/trunk/JUNIT/testFiles/updates/dUpdate000034.xml
+#
+# April 15, 2013 updated STIS CCD Dark rate from PR 72860
+# https://www.ess.stsci.edu/prsystem/servlet/prbrowse/pr.72860
+#
+# Sep 23, 2019 updated CCD dark rates and read noise from JIRA HETC-190
+# Mar 24, 2020 updated CCD read noise from JIRA HETC-245
+# Sep 28, 2020 updated CCD dark rates as per HETC-270
+#
+{
+'name': 'stis',
+'ccd': {
+    'element_type':'ccd',
+    # #1360: dark_current_rate and dark_level still pending definition:
+    'dark_current_rate': {'low':    0.023,
+                          'medium': 0.028,
+                          'high':   0.033,
+                   },
+    'xpixels': 1024,
+    'ypixels': 1024,
+    'pixel_height': 0.05,
+    'pixel_width':  0.05,
+    'readnoise': {1.0: 6.2,
+                  4.0: 8.7}, 
+    'critical_wavelength': 3400.0,
+    # target acquisition has to overide the gain
+    # value provided at engine input.
+    'gain_targetacq': 4.0,
+    }, # end ccd
+
+'fuvmama': {
+    'dark_current_rate': 5.e-5,
+    'dark_glow_region': {'none':    0.0e-4,
+                         'low':     1.0e-4,
+                         'medium':  1.5e-4,
+                         'high':    3.5e-4,
+                        },
+    'element_type': 'mama',
+    'xpixels': 1024,
+    'ypixels': 1024,
+    'half_buffer': 2.E6,
+    # these are for imaging, target acquisition, and
+    # spectroscopy in lower resolution modes.
+    'pixel_height': 0.0244,
+    'pixel_width':  0.0244,
+    # these are for higher resolution spectroscopy.
+    'spectral_pixel_height': {'e140h': 0.0290,
+                  'g140m': 0.0290,
+                  'e140m': 0.0290},
+    'spectral_pixel_width': {'e140h': 0.0290,
+                 'g140m': 0.0290,
+                 'e140m': 0.0290},
+
+    # Note that the pixel sizes defined as above create, in a way,
+    # a dependency between the detector configuration and the instrument
+    # configuration, because of the grating dependencies. Shouldn't
+    # this information them be placed at the level of instrument
+    # configuration instead? Rigorously speaking, pixel sizes in
+    # arcsec are a function of the physical detector itself, and the
+    # optics that illuminate it, thus are a property of the instrument.
+    }, # end fuvmama
+
+'nuvmama': {
+    'element_type': 'mama',
+    'dark_current_rate': 0.0022,
+    'xpixels': 1024,
+    'ypixels': 1024,
+    'half_buffer': 2.E6,
+    # these are for imaging, target acquisition, and
+    # spectroscopy in lower resolution modes.
+    'pixel_height': 0.0244,
+    'pixel_width':  0.0244,
+    # these are for higher resolution spectroscopy.
+    'spectral_pixel_height': {'e230h': 0.0290,
+                  'e230m': 0.0290,
+                  'g230m': 0.0290,
+                  'prism': 0.0290},
+    'spectral_pixel_width': {'e230h': 0.0290,
+                 'e230m': 0.0290,
+                 'g230m': 0.0290,
+                 'prism': 0.0290},
+
+    # see comments above.
+
+    }, # end nuvmama
+}

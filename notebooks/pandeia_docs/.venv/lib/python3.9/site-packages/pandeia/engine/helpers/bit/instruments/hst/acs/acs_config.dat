@@ -1,0 +1,166 @@
+# This file contains attributes of the ACS instrument,
+# that are not directly related to the ACS detectors.
+# These have their attributes segregated in a separate
+# detector_config.dat file.
+#
+# These attributes are used at the time the instrument
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+{
+'name':'acs',
+
+# this is 'pixels_per_resel' in the engine code.
+'wfc':{'spectral_resolution':2,},
+'hrc':{'spectral_resolution':2,},
+'sbc':{'spectral_resolution':2,},
+
+# 'bandpass_limits' specifies the bandpass limits provided
+# by the instrument teams for each filter (Angstrom). Flux
+# outside of these ranges is considered and reported to be a
+# filter leak.  The numbers are provided in PR74482/74483 and
+# in reference to ticket #983.
+'bandpass_limits': {
+    'f115lp': (1149.999, 1979.0),
+    'f122m': (1149.9, 1711.0),
+    'f125lp': (1217.0, 1981.0),
+    'f140lp': (1305.0, 1985.0),
+    'f150lp': (1419.999, 1989.0),
+    'f165lp': (1593.0, 1998.0),
+    'pr110l': (1150.0, 1983.0),
+    'pr130l': (1217.0, 1980.0),
+    'f475w': (3859.001, 5560.354),
+    'f502n': (4966.170, 5080.075),
+    'f550m': (5246.661, 5930.787),
+    'f555w': (4578.533, 6202.064),
+    'f606w': (4625.618, 7179.637),
+    'f625w': (5442.355, 7099.761),
+    'f658n': (6509.032, 6659.451),
+    'f775w': (6800.603, 8627.821),
+    'f850lp': (8004.868, 10853.880),
+    'f892n': (8787.489, 9036.357),
+    'f220w': (1854.248, 2979.0),
+    'f250w': (2093.588, 3525.858),
+    'f330w': (2958.115, 3719.5),
+    'f344n': (3391.0, 3480.0),
+    'f435w': (3604.747, 4878.216),
+    'f660n': (6561.451, 6643.516),
+    'f814w': (6883.360, 9642.301),
+    'coron': (1699.0, 10866.0),
+    'g800l': (5236.0, 10845.0),
+    'pol_uv': (1896.0, 10872.0),
+    'pol_v': (3589.0, 10878.0),
+    'pr200l': (1699.0, 10866.0),
+    'clear1l': (1000.0, 11000.0),
+    'clear2l': (1000.0, 11000.0),
+    'clear1s': (1000.0, 11000.0),
+    'clear2s': (1000.0, 11000.0),
+},
+
+'filters': {
+    'clear1l': {'name':'clear','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'clear2l': {'name':'clear','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'clear1s': {'name':'clear','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'clear2s': {'name':'clear','width':204.8, 'height':204.8, 'minwave':100,'maxwave':1100, \
+                 'central_wavelength':600,'min_effwave':100,'max_effwave':1100},
+    'f435w': {'name':'Johnson B','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':429.7,'min_effwave':350,'max_effwave':500},
+    'f475w': {'name':'SDSS g','width':204.8, 'height':204.8, 'minwave':350,'maxwave':1050, \
+                 'central_wavelength':476,'min_effwave':375,'max_effwave':575},
+    'f502n': {'name':'OIII (1%)','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':502.2,'min_effwave':495,'max_effwave':510},
+    'f550m': {'name':'Narrow V','width':204.8, 'height':204.8, 'minwave':350,'maxwave':1050, \
+                 'central_wavelength':558,'min_effwave':530.65,'max_effwave':581.35},
+    'f555w': {'name':'Johnson V','width':204.8, 'height':204.8, 'minwave':350,'maxwave':1050, \
+                 'central_wavelength':534.6,'min_effwave':460,'max_effwave':625},
+    'f606w': {'name':'Broad V','width':204.8, 'height':204.8, 'minwave':300,'maxwave':1050, \
+                 'central_wavelength':590.7,'min_effwave':450,'max_effwave':750},
+    'f625w': {'name':'SDSS R','width':204.8, 'height':204.8, 'minwave':300,'maxwave':1050, \
+                 'central_wavelength':631.8,'min_effwave':530,'max_effwave':720},
+    'f775w': {'name':'SDSS I','width':204.8, 'height':204.8, 'minwave':400,'maxwave':1050, \
+                 'central_wavelength':776.4,'min_effwave':640,'max_effwave':900},
+    'f814w': {'name':'Broad I','width':204.8, 'height':204.8, 'minwave':400,'maxwave':1050, \
+                 'central_wavelength':833.3,'min_effwave':640,'max_effwave':900},
+    'f850lp': {'name':'SDSS z','width':204.8, 'height':204.8, 'minwave':400,'maxwave':1050, \
+                 'central_wavelength':944.5,'min_effwave':750,'max_effwave':1050},
+    'f892n': {'name':'Methane','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':891.7,'min_effwave':875,'max_effwave':910},
+    'pol0uv': {'name':'UV Polarizer 0','width':204.8, 'height':204.8, 'minwave':200,'maxwave':600, \
+                 'central_wavelength':400,'min_effwave':200,'max_effwave':600},
+    'pol60uv': {'name':'UV Polarizer 0','width':204.8, 'height':204.8, 'minwave':200,'maxwave':600, \
+                 'central_wavelength':400,'min_effwave':200,'max_effwave':600},
+    'po120uv': {'name':'UV Polarizer 0','width':204.8, 'height':204.8, 'minwave':200,'maxwave':600, \
+                 'central_wavelength':400,'min_effwave':200,'max_effwave':600},
+    'f220w': {'name':'Near-UV Broadband','width':204.8, 'height':204.8, 'minwave':150,'maxwave':1050, \
+                 'central_wavelength':229,'min_effwave':180,'max_effwave':350},
+    'f250w': {'name':'Near-UV Broadband','width':204.8, 'height':204.8, 'minwave':150,'maxwave':1050, \
+                 'central_wavelength':269.6,'min_effwave':190,'max_effwave':350},
+    'f330w': {'name':'HRC U','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':335.4,'min_effwave':290,'max_effwave':380},
+    'f344n': {'name':'NeV','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':343.4,'min_effwave':338,'max_effwave':350},
+    'f660n': {'name':'NeV','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':660.2,'min_effwave':338,'max_effwave':350},
+    'g800l': {'name':'Grism(R~100)','width':204.8, 'height':204.8, 'minwave':500,'maxwave':1050,\
+                 'central_wavelength':815,'min_effwave':500,'max_effwave':1050},
+    'pr200l': {'name':'NUV Prism(R~200@200nm)','width':204.8, 'height':204.8,'minwave':180.6, \
+                'maxwave':493.96, 'central_wavelength':815,'min_effwave':500,'max_effwave':1050},
+    'pol0v': {'name':'V Polarizer 0 degrees','width':204.8, 'height':204.8,'minwave':400, \
+                'maxwave':800, 'central_wavelength':600,'min_effwave':400,'max_effwave':800},
+    'pol60v': {'name':'V Polarizer 60 degrees','width':204.8, 'height':204.8,'minwave':400, \
+                'maxwave':800, 'central_wavelength':600,'min_effwave':400,'max_effwave':800},
+    'pol120v': {'name':'V Polarizer 120 degrees','width':204.8, 'height':204.8,'minwave':400, \
+                'maxwave':800, 'central_wavelength':600,'min_effwave':400,'max_effwave':800},
+    'f115lp': {'name':'MgF2','width':204.8, 'height':204.8, 'minwave':115,'maxwave':125, \
+                 'central_wavelength':115,'min_effwave':115,'max_effwave':125},
+    'f122m': {'name':'Lyman alpha','width':204.8, 'height':204.8, 'minwave':117,'maxwave':203, \
+                 'central_wavelength':120,'min_effwave':117,'max_effwave':203},
+    'f125lp': {'name':'CaF2','width':204.8, 'height':204.8, 'minwave':125,'maxwave':140, \
+                 'central_wavelength':125,'min_effwave':125,'max_effwave':140},
+    'f140lp': {'name':'BaF2','width':204.8, 'height':204.8, 'minwave':140,'maxwave':150, \
+                 'central_wavelength':140,'min_effwave':140,'max_effwave':150},
+    'f150lp': {'name':'Crystal Quartz','width':204.8, 'height':204.8, 'minwave':150,'maxwave':165, \
+                 'central_wavelength':150,'min_effwave':150,'max_effwave':165},
+    'f165lp': {'name':'Suprasil','width':204.8, 'height':204.8, 'minwave':165,'maxwave':180, \
+                 'central_wavelength':165,'min_effwave':165,'max_effwave':180},
+    'f658n': {'name':'H alpha (1%)','width':204.8, 'height':204.8, 'minwave':250,'maxwave':1050, \
+                 'central_wavelength':658.1,'min_effwave':645,'max_effwave':670},
+    'fr388n': {'name':'OII Ramp(middle)','width':204.8, 'height':204.8, 'minwave':371,'maxwave':405, \
+                 'central_wavelength':3880,'min_effwave':371,'max_effwave':404.9},
+    'fr423n': {'name':'OII Ramp(inner)','width':204.8, 'height':204.8, 'minwave':405,'maxwave':442, \
+                 'central_wavelength':423.5,'min_effwave':405,'max_effwave':442},
+    'fr462n': {'name':'OII Ramp(outer)','width':204.8, 'height':204.8, 'minwave':442,'maxwave':482, \
+                 'central_wavelength':462,'min_effwave':442,'max_effwave':482},
+    'fr656n': {'name':'H_Alpha Ramp(middle)','width':204.8, 'height':204.8, 'minwave':627,'maxwave':685, \
+                 'central_wavelength':656,'min_effwave':627,'max_effwave':685},
+    'fr716n': {'name':'H_Alpha Ramp(inner)','width':204.8, 'height':204.8, 'minwave':685,'maxwave':747, \
+                 'central_wavelength':671656,'min_effwave':685,'max_effwave':747},
+    'fr782n': {'name':'H_Alpha Ramp(outer)','width':204.8, 'height':204.8, 'minwave':747,'maxwave':816, \
+                 'central_wavelength':781.5,'min_effwave':747,'max_effwave':816},
+    'fr853n': {'name':'IR Ramp(inner)','width':204.8, 'height':204.8, 'minwave':816,'maxwave':891, \
+                 'central_wavelength':853.5,'min_effwave':816,'max_effwave':891},
+    'fr931n': {'name':'IR Ramp(outer)','width':204.8, 'height':204.8, 'minwave':891,'maxwave':972, \
+                 'central_wavelength':931.5,'min_effwave':891,'max_effwave':972},
+    'fr1016n': {'name':'IR Ramp(outer)','width':204.8, 'height':204.8, 'minwave':972,'maxwave':1061, \
+                 'central_wavelength':1016.5,'min_effwave':972,'max_effwave':1061},
+    'fr459m': {'name':'Broad Ramp(middle)','width':204.8, 'height':204.8, 'minwave':381,'maxwave':537, \
+                 'central_wavelength':459,'min_effwave':381,'max_effwave':537},
+    'fr647m': {'name':'Broad Ramp(inner)','width':204.8, 'height':204.8, 'minwave':537,'maxwave':757, \
+                 'central_wavelength':647,'min_effwave':537,'max_effwave':757},
+    'fr914m': {'name':'Broad Ramp(middle)','width':204.8, 'height':204.8, 'minwave':757,'maxwave':1071, \
+                 'central_wavelength':914,'min_effwave':757,'max_effwave':1071},
+    'fr505n': {'name':'OIII Ramp(middle)','width':204.8, 'height':204.8, 'minwave':482,'maxwave':527, \
+                 'central_wavelength':504.5,'min_effwave':482,'max_effwave':527},
+    'fr551n': {'name':'OIII Ramp(inner)','width':204.8, 'height':204.8, 'minwave':527,'maxwave':575, \
+                 'central_wavelength':551,'min_effwave':527,'max_effwave':575},
+    'fr601n': {'name':'OIII Ramp(outer)','width':204.8, 'height':204.8, 'minwave':575,'maxwave':627, \
+                 'central_wavelength':601,'min_effwave':575,'max_effwave':627},
+    'pr110l': {'name':'LiF Prism (R~100)','width':204.8, 'height':204.8, 'minwave':115,'maxwave':201, \
+                 'central_wavelength':157,'min_effwave':115,'max_effwave':201},
+    'pr130l': {'name':'CaF2 Prism (R~100)','width':204.8, 'height':204.8, 'minwave':121,'maxwave':204, \
+                 'central_wavelength':147,'min_effwave':121,'max_effwave':204}
+  }
+ }
+

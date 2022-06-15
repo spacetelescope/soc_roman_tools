@@ -1,0 +1,45 @@
+{
+    "science_mode" : "Imaging",
+    "instrument" : "WFC3UVIS",
+    "detector" : "%aperture%",
+    "gain" : "1.5",
+    "crsplit" : "1",
+    "filter0" : {
+        ("F555W", "F218W", "F200LP", "F225W", "F275W", "F300X", "F336W", 
+         "F350LP", "F390W", "F438W", "F475W", "F475X", "F555W", "F600LP", 
+         "F606W", "F625W", "F775W", "F814W", "F850LP","F218W",) : {
+            "wfc3_filter_type" : "wide",
+            "wfc3_filter_w" : "%filter0%",
+            "wfc3_filter_m" : "F410M",
+            "wfc3_filter_n" : "F280N",
+            "wfc3_filter_q" : "FQ232N",
+        },
+        ("F390M", "F410M", "F467M", "F547M", "F621M", "F689M", "F763M", 
+         "F845M",) : {
+            "wfc3_filter_type" : "medium",
+            "wfc3_filter_w" : "F555W",
+            "wfc3_filter_m" : "%filter0%",
+            "wfc3_filter_n" : "F280N",
+            "wfc3_filter_q" : "FQ232N",
+        },
+        ("F280N", "F343N", "F373N", "F395N", "F469N", "F487N", "F502N", "F631N",
+         "F645N", "F656N", "F657N", "F658N", "F665N", "F673N", "F680N", 
+         "F953N") : {
+            "wfc3_filter_type" : "narrow",
+            "wfc3_filter_w" : "F555W",
+            "wfc3_filter_m" : "F410M",
+            "wfc3_filter_n" : "%filter0%",
+            "wfc3_filter_q" : "FQ232N",
+        },
+        ("FQ232N", "FQ243N", "FQ378N", "FQ387N", "FQ422M", "FQ436N", "FQ437N", 
+         "FQ492N", "FQ508N", "FQ575N", "FQ619N", "FQ634N", "FQ672N", "FQ674N", 
+         "FQ727N", "FQ750N", "FQ889N", "FQ906N", "FQ924N", "FQ937N",) : {
+            "wfc3_filter_type" : "quad",
+            "wfc3_filter_w" : "F555W",
+            "wfc3_filter_m" : "F410M",
+            "wfc3_filter_n" : "F280N",
+            "wfc3_filter_q" : "%filter0%",
+        },
+    }
+}
+

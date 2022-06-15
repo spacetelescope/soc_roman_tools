@@ -1,0 +1,34 @@
+# This file contains attributes of the WFC3UVIS detectors.
+#
+# These attributes are used at the time the detector
+# object gets initialized. The code that handles this
+# file lives in pyetc/engine/initialize.py
+#
+# These numbers are not to date, and are taken from the
+# initial Java ETC file. These will need updating to match
+# the numbers used by the ETC that we will be comparing to
+{
+'name':'wfc3uvis',
+'uvis1':{
+    'element_type': 'ccd',
+    'default_gain': 1.5,
+    'xpixels': 4102,
+    'ypixels': 4096,
+    'pixel_height': 0.0395,
+    'pixel_width': 0.0397,
+    'dark_current_rate': 0.00276,
+    'readnoise': {1.5:3.0},
+ }, # end uvis1
+
+ 'uvis2':{
+     'element_type': 'ccd',
+     'default_gain': 1.5,
+     'xpixels': 4102,
+     'ypixels': 4096,
+     'pixel_height': 0.0395,
+     'pixel_width': 0.0397,
+     'dark_current_rate': 0.00271,
+     'readnoise': {1.5:3.0},
+  }, #end uvis2
+
+} # end dict

@@ -1,0 +1,23 @@
+{
+    "instrument" : "STIS",
+    "binx" : 1,
+    "crsplit" : 1,
+    "gain" : 1,
+    "ccdaperture0" : "%aperture%",
+    "filter0" : {
+        ("MIRROR",): {
+            "science_mode" : "Imaging",
+        },
+        ("G750L","G430L","G230LB",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "ccd_0%%filter0%%",            
+            "obswave" : "%obswave%",
+        },
+        ("G750M","G430M","G230MB",) : {
+            "science_mode" : "Spectroscopic",
+            "disperser" : "ccd_0%%filter0%%",            
+            "obswave" : "%obswave%",
+            "%filter0%_CentralWavelength" : "%centralWavelength%",
+        },
+     }
+}

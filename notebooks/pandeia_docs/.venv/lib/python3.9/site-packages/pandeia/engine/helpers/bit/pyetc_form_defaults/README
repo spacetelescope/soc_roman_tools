@@ -1,0 +1,67 @@
+20211019: THIS DIRECTORY WAS COPIED DIRECTLY FROM pyetc/pyetc/test_utilities/spidering
+          INTO THE paneia REPO.  BEWARE!  THIS IS JUST A COPY!
+
+-------------------- original pyetc content preserved below --------------------
+
+
+This directory contains default values for the PYETC web forms.
+
+The defaults are defined on the pages themselves and are periodically scraped
+for various reasons into the test_utilities/spidering/pyetc_form_defaults
+package.
+
+These values need to be kept up to date.  They are used both for spidering and
+for BIT runs.  The single nightly test:
+
+      test/notify/scraping
+
+runs to watch for when this needs to be done.  That test will pass when this
+directory is up to date.  When it fails, it tells us that this directory
+is out of date and needs to be updated (the defaults need to be rescraped).
+
+Scraping itself is done via:
+
+     % source <path-to>/env.csh
+     % cd pyetc/test_utilities/spidering
+     % svn status; svn update  # make sure it is clean
+     % python runpweb.py -u -s http://${SERVER_HOST}:${SERVER_PORT}
+
+which updates the files in spidering/pyetc_form_defaults, which you then check
+over and then commit. You most likely want to use the NODE and PORT from
+either a release or the nightly test server.
+
+NOTE: NO trailing slash in the URL!
+
+
+THE ABOVE RUNPWEB COMMAND NO LONGER WORKS. Here is the reason and the fix:
+
+The code changes necessary to make it compile under python3 broke the way it's
+run under python 2. 
+
+Because of relative imports, the script has to be run from the top pyetc
+directory, with this form:
+
+python -m pyetc.test_utilities.spidering.runpweb  -u -s http://etcbrady.stsci.edu:4600
+
+and it will drop the result in the webserver/ installation, not at the source 
+directory were it used to be. This has to still be worked out.
+
+
+We can use these two commands below to:
+ 1- create a diff file that contains only file names of the files that changed
+    actual meaningful content.
+    That is, files that changed just the machine and port adresses (recorded in a
+    comment line in each file) are ignored.
+ 2- copy only those files to the git-controlled directory, from which we can use
+    'git add .' or the like to commit the changes.
+
+
+> diff -q -d -I '^#' -I '^ #' webserver/python/lib/python/pyetc/test_utilities/spidering/pyetc_form_defaults/ test_utilities/spidering/pyetc_form_defaults|cut -f2 -d' ' > temp.txt
+
+> rsync --files-from=temp.txt . test_utilities/spidering/pyetc_form_defaults/
+
+In case rsync doesn't work (sometimes it fails for me), you can use instead:
+
+> xargs -a temp.txt cp -t test_utilities/spidering/pyetc_form_defaults/
+
+Remember to run all these commands from the pyetc top directory.

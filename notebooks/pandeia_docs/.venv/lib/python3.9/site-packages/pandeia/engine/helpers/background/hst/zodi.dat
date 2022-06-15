@@ -1,0 +1,57 @@
+#
+#      Zodiacal light background normalization in magnitudes
+#
+#   keep this in sync with 
+#       https://github.com/spacetelescope/pyetc/blob/master/pyetc/etc_web/etc/zodi.dat
+# Heliocentric
+#  ecliptic                    Ecliptic latitude
+#  longitude
+#
+{'table':
+
+[[-999,      0,       5,      10,      15,      20,      25,      30,     35,      45,      50,      60,      75,      90],
+[0,       nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.0708, 22.5136, 22.9538, 23.2298],
+[5,       nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.0816, 22.5136, 22.9538, 23.2298],
+[10,      nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.1033, 22.5210, 22.9538, 23.2298],
+[15,      nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.1454, 22.5360, 22.9538, 23.2298],
+[20,      nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.2004, 22.5743, 22.9649, 23.2298],
+[25,      nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.0808, 22.2586, 22.6141, 22.9762, 23.2298],
+[30,      nan,     nan,     nan,     nan,     nan,     nan,     nan,     nan, 22.1578, 22.3237, 22.6554, 23.0107, 23.2298],
+[35,      nan,     nan,     nan,     nan,     nan,     nan,     nan, 21.9203, 22.2350, 22.3924, 22.7071, 23.0224, 23.2298],
+[40,      nan,     nan,     nan,     nan,     nan,     nan, 21.8257, 22.0287, 22.3181, 22.4628, 22.7522, 23.0343, 23.2298],
+[45,      nan,     nan, 21.0810, 21.3356, 21.5717, 21.7872, 21.9545, 22.1379, 22.3948, 22.5232, 22.7801, 23.0707, 23.2298],
+[50,  20.8432, 21.0663, 21.3194, 21.5397, 21.7408, 21.9486, 22.0833, 22.2472, 22.4715, 22.5837, 22.8080, 23.1071, 23.2298],
+[60,  21.1844, 21.3356, 21.5842, 21.7872, 21.9859, 22.1525, 22.2937, 22.4437, 22.6304, 22.7237, 22.9104, 23.1212, 23.2298],
+[75,  21.6258, 21.6965, 21.8737, 22.0611, 22.2180, 22.3621, 22.4989, 22.6319, 22.7801, 22.8542, 23.0024, 23.1607, 23.2298],
+[90,  21.9155, 21.9768, 22.0660, 22.2350, 22.3948, 22.5284, 22.6470, 22.7699, 22.9104, 22.9807, 23.1212, 23.2016, 23.2298],
+[105, 22.1315, 22.1419, 22.2124, 22.3686, 22.5136, 22.6387, 22.7614, 22.8912, 22.9990, 23.0529, 23.1607, 23.2298, 23.2298],
+[120, 22.2639, 22.2757, 22.3305, 22.4844, 22.5980, 22.7071, 22.8186, 22.9646, 23.0707, 23.1237, 23.2298, 23.2736, 23.2298],
+[135, 22.3181, 22.3243, 22.3948, 22.5284, 22.6304, 22.7339, 22.8483, 22.9224, 23.0707, 23.1237, 23.2298, 23.2885, 23.2298],
+[150, 22.3181, 22.3243, 22.4014, 22.5210, 22.6060, 22.6896, 22.7801, 22.8639, 22.9990, 23.0665, 23.2016, 23.3037, 23.2298],
+[165, 22.2180, 22.2407, 22.3181, 22.4014, 22.4989, 22.5743, 22.6554, 22.7435, 22.9104, 22.9938, 23.1607, 23.3037, 23.2298],
+[180, 22.0418, 22.1315, 22.2236, 22.3243, 22.4216, 22.5210, 22.6304, 22.7348, 22.8998, 22.9823, 23.1473, 23.3037, 23.2298]]
+}
+#
+#  Pedigree:
+#  --------
+#
+#  TIR CDBS-CRDS 2015-001:  https://www.stsci.edu/files/live/sites/www/files/home/hst/instrumentation/reference-data-for-calibration-and-tools/documentation/_documents/TIR-CRDS-2015-01.pdf
+#  Likely converted from Table 17 of Leinert: https://aas.aanda.org/articles/aas/pdf/1998/01/ds1449.pdf
+#  Extra columns likely added by weighted interpolation along rows.
+#  Solar exclusion zone likely expanded to match HST's performance.
+#
+#  History:
+#  -------
+#
+#  - Original able copied on April 30, 2004 from the WFPC2 ETC at
+#    kahuna.stsci.edu/opt/httpd/cgi-bin/WFPC2/TEST4/wfpc2-table-6.3.dat (IB)
+#
+#  - Table updated from information supplied in PR71696 (9/12/2012, Chanley).
+#
+#  - New table supplied in PR83720 (4/21/2016, IB)
+#
+#  - Second version of table supplied in PR83720 (5/13/2016, 11:49, IB)
+#
+#  - Third version of table supplied in PR83720 (5/13/2016, 20:52,  IB)
+#
+#  - Fourth version of table supplied in HETC-317 (8/26/2020, SL):  Fix to 5 values

@@ -1,0 +1,25 @@
+# Standard map to use for decoding form input variables related to
+# extraction.
+#
+# Used by etc_web/etc/extraction.py
+#
+# key: ( source_type,             # point or extended
+#         extractionRegionShape ) # xRegionType or xRegionExtendedType, or an
+#                                   empty string to indicate indirection
+#
+# value: (shape,
+#         form variable from which to read size)
+
+{ ('point', 'circle')         : ('circle', 'extractionRegionCircle'),
+  ('point', 'square')         : ('square', 'extractionRegionSquare'),
+  ('point', 'rectangle')      : ('rectangle', 'extractionRegionRectangle'),
+  ('point', 'screctangle')    : ('rectangle', 'extractionRegionRectangle'),
+  ('point', 'usercircle')     : ('circle', 'extractionRegionUserCircle'),
+  ('point', 'variablecircle') : ('percent', 'extractionRegionVariableCircle'),
+
+  ('extended', 'circle')      : ('circle','extractionRegionExtendedCircle'),
+  ('extended', 'rectangle')   : ('rectangle', 'extractionRegionRectangle'),
+  ('extended', 'square')      : ('square', 'extractionRegionExtendedSquare'),
+  ('extended', 'usercircle')  : ('circle', 'extractionRegionExtendedUserCircle'),
+  ('extended', '')            : ('rectangle', 'xRegionType'),
+}

@@ -1,0 +1,22 @@
+# Dictionary containing the photometric extraction values for 
+# "shape" and "size" when users choose the "default" or
+# "recommended" values for WFC3IR.
+#
+# This file is read by the Data object constructor called
+# when instruments/data.py is imported.
+#
+# key: (target_type, science_mode)
+# value: either (shape, size) or a dictionary indexed by detector yielding (shape, size)
+#   shape = 'circle'|'percent'|'rectangle'|'square'
+#    size = value in arcsec for circles,
+#                    pixels for squares and rectangles,
+#                    unitless for percent
+#
+{ ('point', 'imaging')          : ('circle', 0.2),             # arcsec
+  ('point', 'scimaging')        : ('rectangle', (3,1)),        # (pixel, pixel)
+  ('point', 'spectroscopic')    : ('rectangle', (3,1)),        # (pixel, resel)
+  ('point', 'scspectroscopic')  : ('rectangle', (3,1)),        # (pixel, resel)
+
+  ('extended', 'imaging')       : ('square', 3),               # pixel
+  ('extended', 'spectroscopic') : ('rectangle', (3,1))         # pixel, resel
+}
