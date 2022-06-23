@@ -1,9 +1,7 @@
-import pytest
 import numpy as np
 from soc_roman_tools.pixel_area import pixel_area_map
 from soc_roman_tools.siaf import siaf
 import math
-import datetime
 
 pam01 = pixel_area_map.PixelArea(1)
 pam01.compute()
@@ -11,10 +9,8 @@ pam01_ref = pixel_area_map.PixelArea(1)
 pam01_ref.compute(include_border=True)
 
 
-
 def test_get_coeffs():
-    #Checking retrieval of x_coeffs and y_coeffs pulled from roman_siaf.xml
-
+    # Checking retrieval of x_coeffs and y_coeffs pulled from roman_siaf.xml
     x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
 
     return list(x_coeffs.values()), list(y_coeffs.values())
@@ -32,9 +28,8 @@ def test_get_coeffs():
     np.testing.assert_allclose(y_coeff_2, pam01.y_coeffs[2])
 
 
-
 def test_nominal_area_math():
-    #Basic mathematics check for get_nominal_area
+    # Basic mathematics check for get_nominal_area
 
     x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
 
@@ -59,20 +54,18 @@ def test_nominal_area_math():
     np.testing.assert_allclose(pixel_area_check, pixel_area, atol=0.0000001)
 
 
-
 def test_compute_grids():
-    #Check grid dimensions for default
+    # Check grid dimensions for default
     grid_width = 2044
-    assert grid_width == pam01.pixel_area_map.shape[0]/2
+    assert grid_width == pam01.pixel_area_map.shape[0] / 2
 
-    #Check grid dimensions for reference pixel border
+    # Check grid dimensions for reference pixel border
     grid_width_ref_pix = 2048
-    assert grid_width_ref_pix == pam01_ref.pixel_area_map.shape[0]/2
-
+    assert grid_width_ref_pix == pam01_ref.pixel_area_map.shape[0] / 2
 
 
 def test_matrix_math():
-    #Test Jacobian matrix calculation is correct
+    # Test Jacobian matrix calculation is correct
     x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
 
     return list(x_coeffs.values()), list(y_coeffs.values())
@@ -84,10 +77,9 @@ def test_matrix_math():
     assert pam01.pixel_area_map == pam01_map
 
 
-
 def test_compute_ratio():
-    #Check ratio calculation against known for no reference pixels
-    #The function get_nominal_area has already been tested
+    # Check ratio calculation against known for no reference pixels
+    # The function get_nominal_area has already been tested
     x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
 
     return list(x_coeffs.values()), list(y_coeffs.values())
