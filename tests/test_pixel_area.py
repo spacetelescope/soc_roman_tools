@@ -70,8 +70,8 @@ def test_matrix_math():
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
-    pam01_map = matrix.jacob(x_coeffs,
-                             y_coeffs, x, y,
+    pam01_map = matrix.jacob(x_coeffs, # noqa: F821
+                             y_coeffs, x, y, # noqa: F821
                              order=5).astype(np.float32)
 
     assert pam01.pixel_area_map == pam01_map
@@ -84,8 +84,8 @@ def test_compute_ratio():
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
-    pam01_map = matrix.jacob(x_coeffs,
-                             y_coeffs, x, y,
+    pam01_map = matrix.jacob(x_coeffs, # noqa: F821
+                             y_coeffs, x, y, # noqa: F821
                              order=5).astype(np.float32)
 
     pixel_area_a2 = pam01.get_nominal_area()
