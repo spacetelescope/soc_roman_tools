@@ -11,7 +11,7 @@ pam01_ref.compute(include_border=True)
 
 def test_get_coeffs():
     # Checking retrieval of x_coeffs and y_coeffs pulled from roman_siaf.xml
-    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
+    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file) # noqa: F541
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
@@ -31,7 +31,7 @@ def test_get_coeffs():
 def test_nominal_area_math():
     # Basic mathematics check for get_nominal_area
 
-    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
+    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)  # noqa: F541
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
@@ -66,12 +66,12 @@ def test_compute_grids():
 
 def test_matrix_math():
     # Test Jacobian matrix calculation is correct
-    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
+    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)  # noqa: F541
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
-    pam01_map = matrix.jacob(x_coeffs, # noqa: F821
-                             y_coeffs, x, y, # noqa: F821
+    pam01_map = matrix.jacob(x_coeffs,  # noqa: F821
+                             y_coeffs, x, y,  # noqa: F821
                              order=5).astype(np.float32)
 
     assert pam01.pixel_area_map == pam01_map
@@ -80,12 +80,12 @@ def test_matrix_math():
 def test_compute_ratio():
     # Check ratio calculation against known for no reference pixels
     # The function get_nominal_area has already been tested
-    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)
+    x_coeffs, y_coeffs = siaf.get_distortion_coeffs(f'1_FULL', pam01.siaf_file)  # noqa: F541
 
     return list(x_coeffs.values()), list(y_coeffs.values())
 
-    pam01_map = matrix.jacob(x_coeffs, # noqa: F821
-                             y_coeffs, x, y, # noqa: F821
+    pam01_map = matrix.jacob(x_coeffs,  # noqa: F821
+                             y_coeffs, x, y,  # noqa: F821
                              order=5).astype(np.float32)
 
     pixel_area_a2 = pam01.get_nominal_area()
