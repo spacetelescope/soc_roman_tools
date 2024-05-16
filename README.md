@@ -4,10 +4,12 @@ This repository contains tools developed by the Space Telescope Science Institut
 Roman Space Telescope Wide Field Instrument (WFI) imaging mode. STScI is the Science Operations Center (SOC) for the 
 Roman project.
 
-## Installation & Requirements
+## Recent Updates
 
-The `soc_roman_tools` package requires an environment with Python 3.8+. (Note: if you are using the tutorial notebooks, 
-you can currently only use Python 3.8 or 3.9.) 
+- Tutorial notebooks have been removed. Please see the SOC Roman Documentation system [RDox](https://roman-docs.stsci.edu) for up-to-date tutorials and documentation.
+- Roman SIAF functions have been moved to the [pysiaf](https://www.github.com/spacetelescope/pysiaf) package.
+
+## Installation & Requirements 
 
 To install the latest `soc_roman_tools` release, type:
 
@@ -26,6 +28,4 @@ installation instructions...
 
 ## Help
 
-For assistance with the contents of this repository, please contact the Roman SOC Help Desk
-via e-mail to [help@stsci.edu](mailto:help@stsci.edu?subject=soc_roman_tools%20Question) with "soc_roman_tools 
-Question" in the subject line.
+For assistance with the contents of this repository, please contact the [Roman SOC Help Desk](https://romanhelp.stsci.edu/).
