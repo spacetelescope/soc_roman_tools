@@ -1,6 +1,0 @@
-webbpsf
-stsynphot
-pandeia.engine == 1.7
-scipy
-jupyter
-pandas
